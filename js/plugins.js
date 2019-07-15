@@ -154,7 +154,7 @@
 			number: 16	// Change to your number			
 		}, 2200);
 		$("#number_2").animateNumber({
-			number: 0		// Change to your number	
+			number: 2		// Change to your number	
 		}, 2200);
 		$("#number_3").animateNumber({
 			number: 9842		// Change to your number
