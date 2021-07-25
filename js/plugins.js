@@ -154,10 +154,10 @@
 			number: 16	// Change to your number			
 		}, 2200);
 		$("#number_2").animateNumber({
-			number: 4		// Change to your number	
+			number: 6		// Change to your number	
 		}, 2200);
 		$("#number_3").animateNumber({
-			number: 12983		// Change to your number
+			number: 14853		// Change to your number
 		}, 2200);
 		$("#number_4").animateNumber({
 			number: 5		// Change to your number
