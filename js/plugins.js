@@ -154,13 +154,13 @@
 			number: 16	// Change to your number			
 		}, 2200);
 		$("#number_2").animateNumber({
-			number: 6		// Change to your number	
+			number: 11		// Change to your number	
 		}, 2200);
 		$("#number_3").animateNumber({
 			number: 14853		// Change to your number
 		}, 2200);
 		$("#number_4").animateNumber({
-			number: 5		// Change to your number
+			number: 7		// Change to your number
 		}, 2200);
 	}, {
 		accX: 0,
@@ -192,13 +192,13 @@
 			number: 65		// Change to your number
 		}, 1500);
 		$("#chart_num_4").animateNumber({
-			number: 85		// Change to your number
+			number: 95		// Change to your number
 		}, 1500);
 		$("#chart_num_5").animateNumber({
 			number: 74		// Change to your number
 		}, 1500);
 		$("#chart_num_6").animateNumber({
-			number: 55		// Change to your number
+			number: 75		// Change to your number
 		}, 1500);
 	}, {
 		accX: 0,
