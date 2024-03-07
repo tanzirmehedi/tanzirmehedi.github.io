@@ -836,7 +836,7 @@ a.selected-item {color: #fff;}
 	margin-left: -2px;
 	top: 0;
 	height: 100%;
-	background:  url('../img/noise.png');
+	background: #fff;
 	border-radius: 2px;
 	border: 4px solid  #CCC;
 }
@@ -864,14 +864,12 @@ a.selected-item {color: #fff;}
 	border: 7px solid  #CCC;
 	padding: 20px;
 	color: #222;
-	background: url('../img/noise.png');
+	background: #fff;
 	text-align: left;
-	text-align:justify;
 	border-radius:10px; 
 }
 .experiences .timeline .timeline-block .content h3 {
 	margin: 0 auto; 
-	text-transform: uppercase;
 	font-weight: 800;
 	display: inline-block;
 }
@@ -884,7 +882,6 @@ a.selected-item {color: #fff;}
 	font-size: 0.95em;
 	display: block;
 	color: #CCC;
-	text-transform: capitalize;
 	margin-bottom: 15px;
 }
 .experiences .timeline .timeline-block .content::before {
