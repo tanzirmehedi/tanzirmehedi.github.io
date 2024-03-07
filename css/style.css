@@ -664,7 +664,7 @@ a.selected-item {color: #fff;}
 ----------------------------------------- */
 
 .technical-skills {
-	background: #333 url('../img/bg.jpg') no-repeat 50% 80% fixed;
+	background: #fff url('../img/bg.jpg') no-repeat 50% 80% fixed;
 	background-size: cover;
 	position: relative;
 }
