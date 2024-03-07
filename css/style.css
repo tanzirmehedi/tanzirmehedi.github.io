@@ -863,7 +863,7 @@ a.selected-item {color: #fff;}
 	width: 44%;
 	border: 7px solid  #CCC;
 	padding: 20px;
-	color: #000;
+	color: #fff;
 	background: #999;
 	text-align: left;
 	border-radius:10px; 
@@ -881,7 +881,7 @@ a.selected-item {color: #fff;}
 .experiences .timeline .timeline-block .content span.job-title {
 	font-size: 0.95em;
 	display: block;
-	color: #000;
+	color: #fff;
 	margin-bottom: 15px;
 }
 .experiences .timeline .timeline-block .content::before {
