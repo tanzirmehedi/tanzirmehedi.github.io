@@ -591,17 +591,17 @@ a.selected-item {color: #fff;}
 ----------------------------------------- */
 
 .fun-facts {
-	background: #fff  url('../img/bg.jpg');
+	background: #ffffff  url('../img/bg.jpg');
 	background-size: cover;
 	position: relative;
 }
 .fun-facts .fact {
-	color: #d2d2d2;
+	color: #ffffff;
 	text-transform: capitalize;
 	letter-spacing: 1.2px;
-	margin-bottom: 40px;
-	-webkit-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
+	margin-bottom: 30px;
+	-webkit-transition: all 0.1s ease-in-out;
+	transition: all 0.1s ease-in-out;
 }
 .fun-facts .fact i {
 	font-size: 4rem;
@@ -612,9 +612,9 @@ a.selected-item {color: #fff;}
 .fun-facts .fact p {
 	font-size: 4.5rem;
 	min-height: 102px;
-	color: #d2d2d2;
-	-webkit-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
+	color: #ffffff;
+	-webkit-transition: all 0.1s ease-in-out;
+	transition: all 0.1s ease-in-out;
 }
 .fun-facts .fact:hover, .fun-facts .fact:hover p {
 	color: #02a092;
