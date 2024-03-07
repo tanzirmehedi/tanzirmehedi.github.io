@@ -836,7 +836,7 @@ a.selected-item {color: #fff;}
 	margin-left: -2px;
 	top: 0;
 	height: 100%;
-	background: #fff;
+	background: #999;
 	border-radius: 2px;
 	border: 4px solid  #CCC;
 }
@@ -863,8 +863,8 @@ a.selected-item {color: #fff;}
 	width: 44%;
 	border: 7px solid  #CCC;
 	padding: 20px;
-	color: #222;
-	background: #fff;
+	color: #000;
+	background: #999;
 	text-align: left;
 	border-radius:10px; 
 }
@@ -874,14 +874,14 @@ a.selected-item {color: #fff;}
 	display: inline-block;
 }
 .experiences .timeline .timeline-block .content span.duration {
-	color: #CCC;
+	color: #000;
 	display: inline-block;
 	margin: 5px;
 }
 .experiences .timeline .timeline-block .content span.job-title {
 	font-size: 0.95em;
 	display: block;
-	color: #CCC;
+	color: #000;
 	margin-bottom: 15px;
 }
 .experiences .timeline .timeline-block .content::before {
