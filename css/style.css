@@ -874,7 +874,7 @@ a.selected-item {color: #fff;}
 	display: inline-block;
 }
 .experiences .timeline .timeline-block .content span.duration {
-	color: #000;
+	color: #fff;
 	display: inline-block;
 	margin: 5px;
 }
