@@ -646,7 +646,7 @@ a.selected-item {color: #fff;}
     transition: all 0.3s ease-in-out;
 }
 .services .service:hover i{
- background: #fff;
+ background: #000;
  color: #fff;
  border: 1px solid #222;
 }
