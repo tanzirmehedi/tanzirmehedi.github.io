@@ -27,7 +27,7 @@
 		1 - Loading Page 
 	----------------------------------------------------- */
 	$(window).on("load", function() {
-		$(".loading").delay(1000).addClass("loaded");
+		$(".loading").delay(100).addClass("loaded");
 	});
 
 	/* ---------------------------------------------------
@@ -151,16 +151,16 @@
 	----------------------------------------------------- */
 	$("#facts").appear(function() {
 		$("#number_1").animateNumber({
-			number: 16	// Change to your number			
+			number: 16	// Change to your project number			
 		}, 2200);
 		$("#number_2").animateNumber({
-			number: 11		// Change to your number	
+			number: 12		// Change to your published paper number	
 		}, 2200);
 		$("#number_3").animateNumber({
-			number: 14853		// Change to your number
+			number: 17951		// Change to your line of code number
 		}, 2200);
 		$("#number_4").animateNumber({
-			number: 7		// Change to your number
+			number: 8		// Change to your attendance conference number
 		}, 2200);
 	}, {
 		accX: 0,
@@ -183,22 +183,22 @@
 
 		// start numbers animate at skills section //
 		$("#chart_num_1").animateNumber({
-			number: 82		// Change to your number
+			number: 88		// Change to your number HTML
 		}, 1500);
 		$("#chart_num_2").animateNumber({
-			number: 90		// Change to your number
+			number: 90		// Change to your number CSS
 		}, 1500);
 		$("#chart_num_3").animateNumber({
-			number: 65		// Change to your number
+			number: 65		// Change to your number Java Script
 		}, 1500);
 		$("#chart_num_4").animateNumber({
-			number: 95		// Change to your number
+			number: 96		// Change to your number C
 		}, 1500);
 		$("#chart_num_5").animateNumber({
-			number: 74		// Change to your number
+			number: 85		// Change to your number Solidity
 		}, 1500);
 		$("#chart_num_6").animateNumber({
-			number: 75		// Change to your number
+			number: 82		// Change to your number Java
 		}, 1500);
 	}, {
 		accX: 0,
