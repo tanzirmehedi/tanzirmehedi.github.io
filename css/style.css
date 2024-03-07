@@ -600,8 +600,8 @@ a.selected-item {color: #fff;}
 	text-transform: capitalize;
 	letter-spacing: 1.2px;
 	margin-bottom: 30px;
-	-webkit-transition: all 0.1s ease-in-out;
-	transition: all 0.1s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 .fun-facts .fact i {
 	font-size: 4rem;
@@ -646,13 +646,12 @@ a.selected-item {color: #fff;}
     transition: all 0.3s ease-in-out;
 }
 .services .service:hover i{
- background: #222;
+ background: #fff;
  color: #fff;
  border: 1px solid #222;
 }
 .services .service h3 {
- color: #333;
- text-transform: uppercase;
+ color: #fff;
  margin-top: 10px;
  margin-bottom: 10px;
 }
