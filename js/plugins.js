@@ -154,13 +154,13 @@
 			number: 16	// Change to your project number			
 		}, 2200);
 		$("#number_2").animateNumber({
-			number: 12		// Change to your published paper number	
+			number: 18		// Change to your published paper number	
 		}, 2200);
 		$("#number_3").animateNumber({
-			number: 17951		// Change to your line of code number
+			number: 21058		// Change to your line of code number
 		}, 2200);
 		$("#number_4").animateNumber({
-			number: 8		// Change to your attendance conference number
+			number: 9		// Change to your attendance conference number
 		}, 2200);
 	}, {
 		accX: 0,
