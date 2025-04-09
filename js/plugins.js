@@ -151,16 +151,16 @@
 	----------------------------------------------------- */
 	$("#facts").appear(function() {
 		$("#number_1").animateNumber({
-			number: 16	// Change to your project number			
+			number: 17	// Change to your project number			
 		}, 2200);
 		$("#number_2").animateNumber({
-			number: 18		// Change to your published paper number	
+			number: 21		// Change to your published paper number	
 		}, 2200);
 		$("#number_3").animateNumber({
-			number: 21058		// Change to your line of code number
+			number: 23058		// Change to your line of code number
 		}, 2200);
 		$("#number_4").animateNumber({
-			number: 9		// Change to your attendance conference number
+			number: 12		// Change to your attendance conference number
 		}, 2200);
 	}, {
 		accX: 0,
@@ -195,7 +195,7 @@
 			number: 96		// Change to your number C
 		}, 1500);
 		$("#chart_num_5").animateNumber({
-			number: 85		// Change to your number Solidity
+			number: 95		// Change to your number Solidity
 		}, 1500);
 		$("#chart_num_6").animateNumber({
 			number: 82		// Change to your number Java
