@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Family Tree of Sk Tanzir Mehedi</title>
+  <script src="https://unpkg.com/gojs/release/go.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle, #f8f9fa, #e0e0e0);
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.7em;
+      color: #34495e;
+      margin-bottom: 20px;
+    }
+    #myDiagramDiv {
+      width: 100%;
+      height: 1600px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Family Tree of Sk Tanzir Mehedi</h1>
+    <div id="myDiagramDiv"></div>
+  </div>
+
+  <script>
+    const $ = go.GraphObject.make;
+
+    const myDiagram = $(go.Diagram, "myDiagramDiv", {
+      initialAutoScale: go.Diagram.Uniform,
+      layout: $(go.TreeLayout, {
+        angle: 0,
+        layerSpacing: 50
+      }),
+      "undoManager.isEnabled": true
+    });
+
+    const relationColors = {
+      "Paternal Grandfather": "#a29bfe",
+      "Paternal Grandmother": "#a29bfe",
+      "Maternal Grandfather": "#ffeaa7",
+      "Maternal Grandmother": "#ffeaa7",
+      "Father": "#81ecec",
+      "Mother": "#fab1a0",
+      "Elder Sister": "#fd79a8",
+      "Little Sister": "#fd79a8",
+      "Youngest Brother": "#74b9ff",
+      "Myself": "#55efc4",
+      "Husband": "#dfe6e9",
+      "Child": "#b2bec3",
+      "Paternal Aunt": "#ffeaa7",
+      "Maternal Uncle": "#ffeaa7",
+      "Maternal Aunt": "#ffeaa7"
+    };
+
+    myDiagram.nodeTemplate =
+      $(go.Node, "Auto",
+        $(go.Shape, "RoundedRectangle",
+          {
+            fill: "white",
+            strokeWidth: 2,
+            stroke: "#636e72",
+            parameter1: 12
+          },
+          new go.Binding("fill", "relation", rel => relationColors[rel] || "#dfe6e9")
+        ),
+        $(go.Panel, "Table",
+          { padding: 6 },
+          $(go.TextBlock,
+            {
+              row: 0,
+              column: 0,
+              columnSpan: 2,
+              font: "bold 15px sans-serif",
+              stroke: "#2d3436",
+              margin: new go.Margin(2)
+            },
+            new go.Binding("text", "name")
+          ),
+          $(go.TextBlock,
+            {
+              row: 1,
+              column: 0,
+              columnSpan: 2,
+              font: "13px sans-serif",
+              stroke: "#2d3436",
+              margin: new go.Margin(2)
+            },
+            new go.Binding("text", "relation")
+          )
+        )
+      );
+
+    myDiagram.linkTemplate =
+      $(go.Link,
+        { routing: go.Link.Orthogonal, corner: 8 },
+        $(go.Shape, { stroke: "#b2bec3", strokeWidth: 2 })
+      );
+
+    const nodeDataArray = [
+      { key: 1, name: "Late Sk Abul Hossain", relation: "Paternal Grandfather" },
+      { key: 2, name: "Late Mst Sohorbanu", relation: "Paternal Grandmother" },
+      { key: 3, name: "Late Forman Ali Gazi", relation: "Maternal Grandfather" },
+      { key: 4, name: "Ayesha Khatun", relation: "Maternal Grandmother" },
+      { key: 5, name: "Sk Shahidul Islam", relation: "Father" },
+      { key: 6, name: "Mst Tanzira Begum", relation: "Mother" },
+      { key: 7, name: "Mst Sharmin Sultana", relation: "Elder Sister" },
+      { key: 8, name: "Sk Tanzir Mehedi", relation: "Myself" },
+      { key: 9, name: "Mst Sonia Pervin", relation: "Little Sister" },
+      { key: 10, name: "Sk Tanvir Mehedi", relation: "Youngest Brother" },
+      { key: 11, name: "Md Humayun Kabir", relation: "Husband" },
+      { key: 12, name: "Tasnia Kabir", relation: "Child" },
+      { key: 13, name: "Md Arif Hossain", relation: "Husband" },
+      { key: 14, name: "Ashfia Jannat", relation: "Child" },
+      { key: 15, name: "Mst Roushon Ara Begum", relation: "Eldest Paternal Aunt" },
+      { key: 16, name: "Mst Rehana Amin", relation: "Second Eldest Paternal Aunt" },
+      { key: 17, name: "Mst Rofia Pervin", relation: "Third Eldest Paternal Aunt" },
+      { key: 18, name: "Mst Ruma Pervin", relation: "Youngest Paternal Aunt" },
+      { key: 19, name: "Md Surat Ali", relation: "Eldest Maternal Uncle" },
+      { key: 20, name: "Mst Fozila Khatun", relation: "Eldest Maternal Aunt" },
+      { key: 21, name: "Mst Anawara Khanom", relation: "Second Eldest Maternal Aunt" },
+      { key: 22, name: "Md Azizur Rahman", relation: "Second Eldest Maternal Uncle" },
+      { key: 23, name: "Md. Shahidul Islam", relation: "Third Eldest Maternal Uncle" },
+      { key: 24, name: "Md Mozahidul Islam", relation: "Youngest Maternal Uncle" }
+    ];
+
+    const linkDataArray = [
+      { from: 1, to: 15 },
+      { from: 2, to: 15 },
+      { from: 1, to: 16 },
+      { from: 2, to: 16 },
+      { from: 1, to: 5 },
+      { from: 2, to: 5 },
+      { from: 1, to: 17 },
+      { from: 2, to: 17 },
+      { from: 1, to: 18 },
+      { from: 2, to: 18 },
+      { from: 3, to: 19 },
+      { from: 4, to: 19 },
+      { from: 3, to: 20 },
+      { from: 4, to: 20 },
+      { from: 3, to: 21 },
+      { from: 4, to: 21 },
+      { from: 3, to: 22 },
+      { from: 4, to: 22 },
+      { from: 3, to: 6 },
+      { from: 4, to: 6 },
+      { from: 3, to: 23 },
+      { from: 4, to: 23 },
+      { from: 3, to: 24 },
+      { from: 4, to: 24 },
+      { from: 5, to: 7 },
+      { from: 6, to: 7 },
+      { from: 5, to: 8 },
+      { from: 6, to: 8 },
+      { from: 5, to: 9 },
+      { from: 6, to: 9 },
+      { from: 5, to: 10 },
+      { from: 6, to: 10 },
+      { from: 7, to: 11 },
+      { from: 11, to: 12 },
+      { from: 7, to: 12 },
+      { from: 9, to: 13 },
+      { from: 13, to: 14 },
+      { from: 9, to: 14 },
+
+    ];
+
+    myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+  </script>
+</body>
+</html>
