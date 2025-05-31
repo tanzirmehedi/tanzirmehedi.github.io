@@ -2,14 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Family Tree of Sk Tanzir Mehedi</title>
   <script src="https://unpkg.com/gojs/release/go.js"></script>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: radial-gradient(circle, #f8f9fa, #e0e0e0);
+      background-color: #ffffff;
+      color: #2d3436;
+    }
+    header, footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-bottom: 1px solid #ddd;
+    }
+    header h2 {
+      margin: 0;
+      font-size: 1.8em;
+      color: #2c3e50;
+    }
+    footer {
+      font-size: 0.9em;
+      color: #888;
+      border-top: 1px solid #ddd;
+      margin-top: 40px;
     }
     .container {
       max-width: 1200px;
@@ -18,7 +36,7 @@
     }
     h1 {
       text-align: center;
-      font-size: 2.7em;
+      font-size: 2.5em;
       color: #34495e;
       margin-bottom: 20px;
     }
@@ -32,20 +50,26 @@
   </style>
 </head>
 <body>
+  <header>
+    <h2>Family Tree of Sk Tanzir Mehedi</h2>
+    <nav>
+      <a href="https://tanzirmehedi.github.io" style="color:#3498db; text-decoration:none;">← Back to Home</a>
+    </nav>
+  </header>
+
   <div class="container">
-    <h1>Family Tree of Sk Tanzir Mehedi</h1>
     <div id="myDiagramDiv"></div>
   </div>
 
+  <footer>
+    © 2025 Sk Tanzir Mehedi. All rights reserved.
+  </footer>
+
   <script>
     const $ = go.GraphObject.make;
-
     const myDiagram = $(go.Diagram, "myDiagramDiv", {
       initialAutoScale: go.Diagram.Uniform,
-      layout: $(go.TreeLayout, {
-        angle: 0,
-        layerSpacing: 50
-      }),
+      layout: $(go.TreeLayout, { angle: 0, layerSpacing: 50 }),
       "undoManager.isEnabled": true
     });
 
@@ -139,45 +163,25 @@
     ];
 
     const linkDataArray = [
-      { from: 1, to: 15 },
-      { from: 2, to: 15 },
-      { from: 1, to: 16 },
-      { from: 2, to: 16 },
-      { from: 1, to: 5 },
-      { from: 2, to: 5 },
-      { from: 1, to: 17 },
-      { from: 2, to: 17 },
-      { from: 1, to: 18 },
-      { from: 2, to: 18 },
-      { from: 3, to: 19 },
-      { from: 4, to: 19 },
-      { from: 3, to: 20 },
-      { from: 4, to: 20 },
-      { from: 3, to: 21 },
-      { from: 4, to: 21 },
-      { from: 3, to: 22 },
-      { from: 4, to: 22 },
-      { from: 3, to: 6 },
-      { from: 4, to: 6 },
-      { from: 3, to: 23 },
-      { from: 4, to: 23 },
-      { from: 3, to: 24 },
-      { from: 4, to: 24 },
-      { from: 5, to: 7 },
-      { from: 6, to: 7 },
-      { from: 5, to: 8 },
-      { from: 6, to: 8 },
-      { from: 5, to: 9 },
-      { from: 6, to: 9 },
-      { from: 5, to: 10 },
-      { from: 6, to: 10 },
-      { from: 7, to: 11 },
-      { from: 11, to: 12 },
-      { from: 7, to: 12 },
-      { from: 9, to: 13 },
-      { from: 13, to: 14 },
-      { from: 9, to: 14 },
-
+      { from: 1, to: 15 }, { from: 2, to: 15 },
+      { from: 1, to: 16 }, { from: 2, to: 16 },
+      { from: 1, to: 5 },  { from: 2, to: 5 },
+      { from: 1, to: 17 }, { from: 2, to: 17 },
+      { from: 1, to: 18 }, { from: 2, to: 18 },
+      { from: 3, to: 19 }, { from: 4, to: 19 },
+      { from: 3, to: 20 }, { from: 4, to: 20 },
+      { from: 3, to: 21 }, { from: 4, to: 21 },
+      { from: 3, to: 22 }, { from: 4, to: 22 },
+      { from: 3, to: 6 },  { from: 4, to: 6 },
+      { from: 3, to: 23 }, { from: 4, to: 23 },
+      { from: 3, to: 24 }, { from: 4, to: 24 },
+      { from: 5, to: 7 },  { from: 6, to: 7 },
+      { from: 5, to: 8 },  { from: 6, to: 8 },
+      { from: 5, to: 9 },  { from: 6, to: 9 },
+      { from: 5, to: 10 }, { from: 6, to: 10 },
+      { from: 7, to: 11 }, { from: 11, to: 12 },
+      { from: 7, to: 12 }, { from: 9, to: 13 },
+      { from: 13, to: 14 },{ from: 9, to: 14 }
     ];
 
     myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
