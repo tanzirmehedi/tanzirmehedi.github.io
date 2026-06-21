@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Arabic Letters - Jabar · Jer · Pesh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#06141f; --ink2:#0c2438;
+    --gold:#e8c987; --gold-soft:#c9a96a;
+    --blue:#62b2d8; --green:#5cc39a;
+    --cream:#efe6d3; --muted:#92a7b4;
+    --line:rgba(232,201,135,.18);
+    --accent:var(--gold);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  [hidden]{display:none!important}
+  html,body{height:100%}
+  body{
+    font-family:"Outfit",system-ui,sans-serif;color:var(--cream);
+    background:radial-gradient(120% 90% at 50% -10%, #11324c 0%, var(--ink2) 38%, var(--ink) 78%);
+    min-height:100dvh;display:flex;
+    padding:clamp(70px,12vh,96px) clamp(16px,4vw,40px) clamp(74px,14vh,98px);
+    position:relative;overflow-x:hidden;
+  }
+  .stage{margin:auto}
+
+  /* fixed header */
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:20;height:56px;
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    padding:0 clamp(14px,4vw,28px);
+    background:linear-gradient(180deg, rgba(6,20,31,.92), rgba(6,20,31,.72));
+    border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+  .topbar .brand{display:flex;align-items:center;gap:10px}
+  .topbar .brand-mark{font-family:"Amiri",serif;color:var(--gold);font-size:1.4rem;line-height:1;letter-spacing:2px;direction:rtl}
+  .topbar .brand-name{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:1.18rem;color:var(--cream);letter-spacing:.02em;white-space:nowrap}
+  .topbar .brand-sub{font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-soft);white-space:nowrap}
+  @media(max-width:520px){.topbar .brand-sub{display:none}}
+
+  /* fixed footer */
+  .botbar{position:fixed;bottom:0;left:0;right:0;z-index:20;min-height:42px;
+    display:flex;align-items:center;justify-content:center;gap:7px 13px;flex-wrap:wrap;
+    padding:8px clamp(14px,4vw,28px);text-align:center;
+    background:linear-gradient(0deg, rgba(6,20,31,.95), rgba(6,20,31,.72));
+    border-top:1px solid var(--line);backdrop-filter:blur(10px)}
+  .botbar .credit{font-size:.78rem;color:var(--muted);letter-spacing:.02em;white-space:nowrap}
+  .botbar .credit b{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:.92rem;color:var(--gold);letter-spacing:.03em}
+  .socials{display:inline-flex;align-items:center;gap:7px;flex-wrap:wrap;justify-content:center}
+  .sicon{width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+    border:1px solid var(--line);color:var(--gold-soft);background:rgba(255,255,255,.03);
+    text-decoration:none;transition:color .2s ease,background .2s ease,border-color .2s ease,transform .15s ease}
+  .sicon:hover{color:#0a1722;background:var(--gold);border-color:var(--gold);transform:translateY(-1px)}
+  .sicon svg{width:13px;height:13px;display:block}
+  .sicon.pending{opacity:.5}
+
+  /* mic banner */
+  .micbanner{width:100%;border:1px solid rgba(224,168,90,.4);background:rgba(224,168,90,.08);
+    border-radius:12px;padding:10px 13px;font-size:.82rem;color:#f0d2a0;line-height:1.5;text-align:center}
+  body::before{
+    content:"";position:fixed;inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, var(--line) 0 1px, transparent 1px 26px),
+      repeating-linear-gradient(-45deg, var(--line) 0 1px, transparent 1px 26px);
+    opacity:.5;mask:radial-gradient(120% 90% at 50% 30%, #000 0%, transparent 75%);
+    pointer-events:none;z-index:0;
+  }
+  .stage{position:relative;z-index:1;width:100%;max-width:620px;text-align:center;
+    display:flex;flex-direction:column;align-items:center;gap:clamp(14px,2.3vw,22px)}
+
+  .eyebrow{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--gold-soft);font-weight:500;display:flex;align-items:center;gap:.9em}
+  .eyebrow::before,.eyebrow::after{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-soft))}
+  .eyebrow::after{background:linear-gradient(90deg,var(--gold-soft),transparent)}
+  h1{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(2rem,5.6vw,2.9rem);
+    line-height:1.04;color:var(--cream);margin-top:.35rem}
+  .title-ar{font-family:"Amiri",serif;direction:rtl;color:var(--gold);
+    font-size:clamp(1.05rem,4vw,1.45rem);margin-top:.2rem;opacity:.92}
+
+  .tabs{display:flex;gap:8px;width:100%;background:rgba(255,255,255,.03);
+    border:1px solid var(--line);border-radius:16px;padding:6px;backdrop-filter:blur(4px)}
+  .tab{flex:1;border:0;cursor:pointer;background:transparent;color:var(--muted);
+    border-radius:11px;padding:11px 6px 9px;font-family:inherit;
+    display:flex;flex-direction:column;align-items:center;gap:3px;
+    transition:background .35s ease,color .35s ease,transform .15s ease}
+  .tab:hover{color:var(--cream)}
+  .tab:active{transform:scale(.97)}
+  .tab .mark{font-family:"Amiri",serif;font-size:1.6rem;line-height:1;color:var(--tab-accent);height:1.6rem}
+  .tab .term{font-weight:600;font-size:.95rem;letter-spacing:.02em}
+  .tab .sub{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;opacity:.8}
+  .tab[aria-selected="true"]{
+    background:linear-gradient(180deg,color-mix(in srgb,var(--tab-accent) 18%,transparent),color-mix(in srgb,var(--tab-accent) 7%,transparent));
+    color:var(--cream);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--tab-accent) 45%,transparent)}
+  .tab[aria-selected="true"] .term{color:var(--tab-accent)}
+
+  .medallion{position:relative;width:min(66vw,330px);aspect-ratio:1;display:grid;place-items:center;margin-top:2px}
+  .medallion::before{content:"";position:absolute;inset:8%;border-radius:50%;
+    background:radial-gradient(circle, color-mix(in srgb,var(--accent) 24%,transparent) 0%, transparent 68%);
+    filter:blur(6px);transition:background .5s ease}
+  .medallion-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .ring-line,.ring-line2,.ring-inner{fill:none;stroke:var(--accent);transition:stroke .5s ease}
+  .ring-line{stroke-width:1.4;opacity:.5}
+  .ring-line2{stroke-width:1;opacity:.32;stroke-dasharray:1.5 7}
+  .ring-inner{stroke-width:1.2;opacity:.6}
+  .star{fill:none;stroke:var(--accent);stroke-width:1.3;opacity:.34;transition:stroke .5s ease}
+  .dots circle{fill:var(--accent);opacity:.7;transition:fill .5s ease}
+  .stars{transform-origin:200px 200px;animation:spin 90s linear infinite}
+  .letter{position:relative;z-index:2;font-family:"Amiri",serif;direction:rtl;color:var(--accent);
+    font-size:clamp(4.5rem,16vw,8rem);line-height:1;
+    text-shadow:0 0 38px color-mix(in srgb,var(--accent) 45%,transparent);
+    transition:color .5s ease,text-shadow .5s ease;user-select:none}
+  .letter.enter{animation:reveal .55s cubic-bezier(.2,.7,.2,1)}
+
+  .caption{min-height:3.6rem;display:flex;flex-direction:column;gap:4px;align-items:center}
+  .name{font-family:"Cormorant Garamond",serif;font-size:1.55rem;font-weight:600;color:var(--cream)}
+  .sound{font-size:.92rem;color:var(--muted)}
+  .sound b{color:var(--accent);font-weight:600;font-style:normal}
+  .progress{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);opacity:.85}
+
+  .forms{display:flex;gap:7px;width:100%;justify-content:center}
+  .form-chip{flex:1;min-width:60px;max-width:130px;border:1px solid var(--line);
+    background:rgba(255,255,255,.025);border-radius:12px;padding:8px 4px 6px;cursor:pointer;
+    color:var(--muted);font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:2px;
+    transition:border-color .25s ease,background .25s ease,color .25s ease}
+  .form-chip .fglyph{font-family:"Amiri",serif;font-size:1.5rem;line-height:1.1;color:var(--cream);direction:rtl;min-height:1.6rem}
+  .form-chip .flabel{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase}
+  .form-chip:hover:not([disabled]){color:var(--cream)}
+  .form-chip[aria-pressed="true"]{border-color:color-mix(in srgb,var(--accent) 60%,transparent);
+    background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)}
+  .form-chip[aria-pressed="true"] .fglyph{color:var(--accent)}
+  .form-chip[disabled]{opacity:.28;cursor:not-allowed}
+
+  .controls{display:flex;gap:12px;width:100%;justify-content:center}
+  button.act{font-family:inherit;cursor:pointer;border-radius:13px;padding:14px 20px;font-size:1rem;font-weight:500;
+    display:inline-flex;align-items:center;gap:.5em;justify-content:center;
+    transition:transform .14s ease,box-shadow .3s ease,background .3s ease,border-color .3s ease,color .3s ease}
+  button.act:active{transform:translateY(1px) scale(.99)}
+  .next{border:0;color:#0a1722;flex:1;min-width:150px;
+    background:linear-gradient(180deg,var(--accent),color-mix(in srgb,var(--accent) 78%,#8a6d2e));
+    box-shadow:0 8px 22px color-mix(in srgb,var(--accent) 30%,transparent)}
+  .next:hover{box-shadow:0 10px 28px color-mix(in srgb,var(--accent) 42%,transparent)}
+  .ghost{background:transparent;color:var(--cream);border:1px solid var(--line)}
+  .ghost:hover{border-color:color-mix(in srgb,var(--accent) 55%,transparent);color:var(--accent)}
+  .ghost[disabled]{opacity:.4;cursor:not-allowed}
+  .ghost.recording{border-color:#d98a7a;color:#f0b3a6;background:rgba(217,138,122,.08)}
+  .prevbtn{flex:0 0 auto;min-width:118px}
+
+  .practice{width:100%;border:1px solid var(--line);border-radius:16px;
+    background:rgba(255,255,255,.025);padding:16px 16px 18px;display:flex;flex-direction:column;gap:13px}
+  .practice-head{display:flex;align-items:center;justify-content:space-between;
+    font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft)}
+  .practice-head em{font-style:normal;color:var(--muted);letter-spacing:.04em;text-transform:none;font-size:.7rem;opacity:.8}
+  .rec-row{display:flex;gap:10px}
+  .rec-row .act{flex:1;font-size:.92rem;padding:12px 8px}
+  .level{height:6px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+  .level span{display:block;height:100%;width:0%;border-radius:99px;
+    background:linear-gradient(90deg,var(--green),var(--gold));transition:width .08s linear}
+  .feedback{display:flex;flex-direction:column;align-items:center;gap:11px;min-height:22px}
+  .fb-status{font-size:.9rem;color:var(--muted);text-align:center;line-height:1.5}
+  .play-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+  .players{display:flex;flex-direction:column;gap:10px;width:100%}
+  .player{display:flex;flex-direction:column;gap:5px}
+  .player-label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);opacity:.95;text-align:left}
+  .player audio{width:100%;height:40px;border-radius:10px;background:#dfe6ec}
+  .players .chip-btn{align-self:center;margin-top:2px}
+  .chip-btn{font-family:inherit;cursor:pointer;border:1px solid var(--line);background:rgba(255,255,255,.03);
+    color:var(--cream);border-radius:10px;padding:8px 14px;font-size:.85rem;display:inline-flex;align-items:center;gap:.4em;
+    transition:border-color .2s ease,color .2s ease,background .2s ease}
+  .chip-btn:hover{border-color:color-mix(in srgb,var(--accent) 55%,transparent);color:var(--accent)}
+  .chip-btn.playing{border-color:color-mix(in srgb,var(--accent) 70%,transparent);color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+  .chip-btn.danger:hover{border-color:#d98a7a;color:#e7a99c}
+  .gauge-wrap{display:flex;flex-direction:column;align-items:center;gap:6px}
+  .gauge{--p:0;--g:var(--gold);width:118px;height:118px;border-radius:50%;
+    background:conic-gradient(var(--g) calc(var(--p)*1%), rgba(255,255,255,.08) 0);display:grid;place-items:center}
+  .gauge-hole{width:88px;height:88px;border-radius:50%;background:#0a2034;display:grid;place-items:center;line-height:1}
+  .gauge-hole b{font-family:"Cormorant Garamond",serif;font-size:2.1rem;font-weight:600}
+  .gauge-hole small{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+  .verdict{font-family:"Cormorant Garamond",serif;font-size:1.2rem;font-weight:600}
+  .vs{font-size:.76rem;color:var(--muted)}
+
+  .hint{font-size:.72rem;color:var(--muted);opacity:.7}
+  .hint kbd{font-family:inherit;background:rgba(255,255,255,.06);border:1px solid var(--line);
+    border-radius:5px;padding:1px 6px;font-size:.7rem;color:var(--cream)}
+
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes reveal{from{opacity:0;transform:translateY(8px) scale(.82) rotateX(18deg)}to{opacity:1;transform:none}}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+  .rec-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#e7665a;animation:pulse 1s ease infinite}
+  @media (prefers-reduced-motion:reduce){.stars{animation:none}.letter.enter{animation:none}.rec-dot{animation:none}}
+  @media (max-width:430px){.controls{flex-direction:column}.next,.prevbtn{width:100%}}
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">ـَ ـِ ـُ</span>
+      <span class="brand-name">The Arabic Letters</span>
+    </div>
+    <span class="brand-sub">Jabar · Jer · Pesh</span>
+  </header>
+
+  <main class="stage">
+    <header>
+      <p class="eyebrow">Alphabet Practice</p>
+      <h1>The Arabic Letters</h1>
+      <p class="title-ar">اَلْحُرُوفُ الْهِجَائِيَّة</p>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="Choose a harakat">
+      <button class="tab" role="tab" data-tab="0" aria-selected="true"  style="--tab-accent:var(--gold)"><span class="mark">ـَ</span><span class="term">Jabar</span><span class="sub">Fatha · a</span></button>
+      <button class="tab" role="tab" data-tab="1" aria-selected="false" style="--tab-accent:var(--blue)"><span class="mark">ـِ</span><span class="term">Jer</span><span class="sub">Kasra · i</span></button>
+      <button class="tab" role="tab" data-tab="2" aria-selected="false" style="--tab-accent:var(--green)"><span class="mark">ـُ</span><span class="term">Pesh</span><span class="sub">Damma · u</span></button>
+    </div>
+
+    <div class="medallion">
+      <svg class="medallion-svg" viewBox="0 0 400 400" aria-hidden="true">
+        <circle class="ring-line"  cx="200" cy="200" r="190"/>
+        <circle class="ring-line2" cx="200" cy="200" r="178"/>
+        <g class="dots"></g>
+        <g class="stars">
+          <polygon class="star" points="320,200 200,320 80,200 200,80"/>
+          <polygon class="star" points="284.85,284.85 115.15,284.85 115.15,115.15 284.85,115.15"/>
+        </g>
+        <circle class="ring-inner" cx="200" cy="200" r="96"/>
+      </svg>
+      <div class="letter" id="letter" aria-live="polite" aria-atomic="true"></div>
+    </div>
+
+    <div class="caption">
+      <div class="name" id="name"></div>
+      <div class="sound" id="sound"></div>
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <div class="forms" id="forms" role="group" aria-label="Letter forms"></div>
+
+    <div class="controls">
+      <button class="act ghost prevbtn" id="prev" type="button">← Previous</button>
+      <button class="act next" id="next" type="button">Next letter →</button>
+    </div>
+    <br>
+    <section class="practice" aria-label="Pronunciation check">
+      <div class="practice-head"><span>Pronunciation check</span><em id="persistNote">approximate · in-browser</em></div>
+      <div class="micbanner" id="micBanner" hidden></div>
+      <div class="rec-row">
+        <button class="act ghost" id="save" type="button">🎙️ Save reference</button>
+        <button class="act ghost" id="compare" type="button" disabled>🎯 Record &amp; compare</button>
+      </div>
+      <div class="level"><span id="levelbar"></span></div>
+      <div class="feedback">
+        <div class="fb-status" id="fbStatus"></div>
+        <div class="players" id="playRow">
+          <div class="player" id="refPlayer" hidden>
+            <span class="player-label">▶ Reference</span>
+            <audio id="refAudio" controls preload="metadata"></audio>
+          </div>
+          <div class="player" id="minePlayer" hidden>
+            <span class="player-label">▶ Your attempt</span>
+            <audio id="mineAudio" controls preload="metadata"></audio>
+          </div>
+          <button class="chip-btn danger" id="clearRef" type="button" hidden>✕ Clear saved</button>
+        </div>
+        <div class="gauge-wrap" id="gaugeWrap" hidden></div>
+      </div>
+    </section>
+    <br>
+    <p class="hint"><kbd>←</kbd><kbd>→</kbd> letters · <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> tabs · <kbd>S</kbd> save · <kbd>C</kbd> compare</p>
+  </main>
+  
+  <footer class="botbar">
+    <span class="credit">Developed by <b>Tanzir Mehedi Shawon</b></span>
+    <span class="socials">
+      <a class="sicon" id="link-profile" href="#" aria-label="Personal profile" title="Personal profile"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.93 6h-2.95a15.6 15.6 0 00-1.38-3.56A8.03 8.03 0 0118.93 8zM12 4c.83 1.2 1.48 2.53 1.91 4h-3.82C10.52 6.53 11.17 5.2 12 4zM4.26 14a7.96 7.96 0 010-4h3.38a16.5 16.5 0 000 4H4.26zm.81 2h2.95c.34 1.27.81 2.47 1.38 3.56A8.03 8.03 0 015.07 16zm2.95-8H5.07a8.03 8.03 0 014.33-3.56A15.6 15.6 0 008.02 8zM12 20c-.83-1.2-1.48-2.53-1.91-4h3.82A13.4 13.4 0 0112 20zm2.34-6H9.66a14.7 14.7 0 010-4h4.68a14.7 14.7 0 010 4zm.27 5.56c.57-1.09 1.04-2.29 1.38-3.56h2.95a8.03 8.03 0 01-4.33 3.56zM16.36 14a16.5 16.5 0 000-4h3.38a7.96 7.96 0 010 4h-3.38z"/></svg></a>
+      <a class="sicon" id="link-scholar" href="#" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg></a>
+      <a class="sicon" id="link-orcid" href="#" aria-label="ORCID" title="ORCID"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947 0 .525-.422.947-.947.947-.525 0-.946-.422-.946-.947 0-.516.421-.947.946-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/></svg></a>
+      <a class="sicon" id="link-researchgate" href="#" aria-label="ResearchGate" title="ResearchGate"><svg viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="16.5" text-anchor="middle" font-size="11" font-weight="700" font-family="Arial,Helvetica,sans-serif" fill="currentColor">RG</text></svg></a>
+      <a class="sicon" id="link-facebook" href="#" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+      <a class="sicon" id="link-linkedin" href="#" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
+    </span>
+  </footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var LETTERS=[
+    {ar:"ا",name:"Alif",s:"",cl:0},{ar:"ب",name:"Baa",s:"b",cl:1},{ar:"ت",name:"Taa",s:"t",cl:1},{ar:"ث",name:"Thaa",s:"th",cl:1},
+    {ar:"ج",name:"Jeem",s:"j",cl:1},{ar:"ح",name:"Ḥaa",s:"ḥ",cl:1},{ar:"خ",name:"Khaa",s:"kh",cl:1},{ar:"د",name:"Daal",s:"d",cl:0},
+    {ar:"ذ",name:"Dhaal",s:"dh",cl:0},{ar:"ر",name:"Raa",s:"r",cl:0},{ar:"ز",name:"Zaay",s:"z",cl:0},{ar:"س",name:"Seen",s:"s",cl:1},
+    {ar:"ش",name:"Sheen",s:"sh",cl:1},{ar:"ص",name:"Ṣaad",s:"ṣ",cl:1},{ar:"ض",name:"Ḍaad",s:"ḍ",cl:1},{ar:"ط",name:"Ṭaa",s:"ṭ",cl:1},
+    {ar:"ظ",name:"Ẓaa",s:"ẓ",cl:1},{ar:"ع",name:"ʿAyn",s:"ʿ",cl:1},{ar:"غ",name:"Ghayn",s:"gh",cl:1},{ar:"ف",name:"Faa",s:"f",cl:1},
+    {ar:"ق",name:"Qaaf",s:"q",cl:1},{ar:"ك",name:"Kaaf",s:"k",cl:1},{ar:"ل",name:"Laam",s:"l",cl:1},{ar:"م",name:"Meem",s:"m",cl:1},
+    {ar:"ن",name:"Noon",s:"n",cl:1},{ar:"ه",name:"Haa",s:"h",cl:1},{ar:"و",name:"Waaw",s:"w",cl:0},{ar:"ي",name:"Yaa",s:"y",cl:1}
+  ];
+  var TABS=[
+    {mark:"\u064E",vowel:"a",accent:"var(--gold)"},
+    {mark:"\u0650",vowel:"i",accent:"var(--blue)"},
+    {mark:"\u064F",vowel:"u",accent:"var(--green)"}
+  ];
+  var FORMS=[
+    {id:"isolated",label:"Isolated"},{id:"initial",label:"Initial"},
+    {id:"medial",label:"Medial"},{id:"final",label:"Final"}
+  ];
+  var ZWJ="\u200D", N=LETTERS.length, DIM=12;
+  var state=TABS.map(function(){return {bag:[],ptr:0,hist:[],hpos:0};});
+  var active=0, selForm="isolated";
+  var refs={}, attempts={};
+
+  /* shape helpers (Unicode joining via ZWJ) */
+  function shape(ar,form){
+    if(form==="initial")return ar+ZWJ;
+    if(form==="medial") return ZWJ+ar+ZWJ;
+    if(form==="final")  return ZWJ+ar;
+    return ar;
+  }
+  function withHarakat(ar,form,mark){
+    if(form==="initial")return ar+mark+ZWJ;
+    if(form==="medial") return ZWJ+ar+mark+ZWJ;
+    if(form==="final")  return ZWJ+ar+mark;
+    return ar+mark;
+  }
+  function formOk(idx,form){
+    if(form==="initial"||form==="medial")return LETTERS[idx].cl===1;
+    return true;
+  }
+
+  function shuffle(){var a=[];for(var i=0;i<N;i++)a.push(i);
+    for(var j=N-1;j>0;j--){var k=Math.floor(Math.random()*(j+1)),t=a[j];a[j]=a[k];a[k]=t;}return a;}
+  function pick(st){
+    if(st.ptr>=st.bag.length||st.bag.length===0){
+      var last=st.bag.length?st.bag[st.bag.length-1]:-1;
+      do{st.bag=shuffle();}while(st.bag[0]===last&&N>1);st.ptr=0;
+    }
+    var idx=st.bag[st.ptr];st.ptr++;return idx;
+  }
+  function curIdx(){var st=state[active];return st.hist[st.hpos];}
+
+  (function(){var g=document.querySelector(".dots"),n=24,r=183,h="";
+    for(var i=0;i<n;i++){var a=i/n*Math.PI*2;
+      h+='<circle cx="'+(200+r*Math.cos(a)).toFixed(1)+'" cy="'+(200+r*Math.sin(a)).toFixed(1)+'" r="2.1"/>';}
+    g.innerHTML=h;})();
+
+  var el={root:document.documentElement,letter:document.getElementById("letter"),
+    name:document.getElementById("name"),sound:document.getElementById("sound"),
+    progress:document.getElementById("progress"),tabs:[].slice.call(document.querySelectorAll(".tab")),
+    forms:document.getElementById("forms"),prev:document.getElementById("prev"),
+    save:document.getElementById("save"),compare:document.getElementById("compare"),
+    level:document.getElementById("levelbar"),status:document.getElementById("fbStatus"),
+    refPlayer:document.getElementById("refPlayer"),minePlayer:document.getElementById("minePlayer"),
+    refAudio:document.getElementById("refAudio"),mineAudio:document.getElementById("mineAudio"),
+    clearRef:document.getElementById("clearRef"),gaugeWrap:document.getElementById("gaugeWrap"),
+    micBanner:document.getElementById("micBanner"),
+    persist:document.getElementById("persistNote")};
+
+  function key(){return active+":"+curIdx()+":"+selForm;}
+  function curGlyph(){return withHarakat(LETTERS[curIdx()].ar,selForm,TABS[active].mark);}
+  function glyphSpan(){return '<b style="font-family:Amiri,serif;color:var(--accent)">'+curGlyph()+'</b>';}
+  function soundOf(L,v){var b=L.s+v;return b.charAt(0).toUpperCase()+b.slice(1);}
+
+  function buildForms(){
+    var idx=curIdx();el.forms.innerHTML="";
+    FORMS.forEach(function(f){
+      var ok=formOk(idx,f.id),b=document.createElement("button");
+      b.className="form-chip";b.type="button";b.dataset.form=f.id;
+      b.setAttribute("aria-pressed",selForm===f.id?"true":"false");
+      if(!ok)b.disabled=true;
+      b.innerHTML='<span class="fglyph">'+(ok?shape(LETTERS[idx].ar,f.id):"-")+'</span><span class="flabel">'+f.label+'</span>';
+      b.addEventListener("click",function(){if(recState||b.disabled)return;selForm=f.id;render(false);});
+      el.forms.appendChild(b);
+    });
+  }
+
+  function render(animate){
+    if(!formOk(curIdx(),selForm))selForm="isolated";
+    var tab=TABS[active],L=LETTERS[curIdx()];
+    el.root.style.setProperty("--accent",tab.accent);
+    el.letter.textContent=withHarakat(L.ar,selForm,tab.mark);
+    el.name.textContent=L.name;
+    el.sound.innerHTML='sounds like <b>“'+soundOf(L,tab.vowel)+'”</b>';
+    el.progress.textContent="Letter "+(curIdx()+1)+" of "+N+" · alphabet";
+    el.tabs.forEach(function(t,i){t.setAttribute("aria-selected",i===active?"true":"false");});
+    el.prev.disabled=(state[active].hpos===0)||!!recState;
+    buildForms();
+    if(animate){el.letter.classList.remove("enter");void el.letter.offsetWidth;el.letter.classList.add("enter");}
+    refreshPractice();
+  }
+  function goNext(){if(recState)return;var st=state[active];
+    if(st.hpos<st.hist.length-1)st.hpos++;else{st.hist.push(pick(st));st.hpos=st.hist.length-1;}render(true);}
+  function goPrev(){if(recState)return;var st=state[active];if(st.hpos>0){st.hpos--;render(true);}}
+  function switchTab(i){if(i===active||recState)return;active=i;render(true);}
+
+  /* ---------- persistent storage (IndexedDB) ---------- */
+  var DB=null, memOnly=false;
+  function dbOpen(){return new Promise(function(res){
+    try{
+      if(typeof indexedDB==="undefined"){memOnly=true;return res();}
+      var rq=indexedDB.open("arabicLetters",1);
+      rq.onupgradeneeded=function(e){var db=e.target.result;if(!db.objectStoreNames.contains("refs"))db.createObjectStore("refs",{keyPath:"key"});};
+      rq.onsuccess=function(e){DB=e.target.result;res();};
+      rq.onerror=function(){memOnly=true;res();};
+    }catch(e){memOnly=true;res();}
+  });}
+  function dbAll(){return new Promise(function(res){
+    if(!DB)return res([]);
+    try{var rq=DB.transaction("refs","readonly").objectStore("refs").getAll();
+      rq.onsuccess=function(){res(rq.result||[]);};rq.onerror=function(){res([]);};}
+    catch(e){res([]);}
+  });}
+  function dbPut(r){if(!DB)return;try{DB.transaction("refs","readwrite").objectStore("refs").put(r);}catch(e){}}
+  function dbDel(k){if(!DB)return;try{DB.transaction("refs","readwrite").objectStore("refs").delete(k);}catch(e){}}
+
+  /* ---------- audio playback (native <audio> from recorded blob) ---------- */
+  function encodeWav(s,sr){
+    var n=s.length,b=new ArrayBuffer(44+n*2),v=new DataView(b),i,o=44;
+    function w(p,t){for(var j=0;j<t.length;j++)v.setUint8(p+j,t.charCodeAt(j));}
+    w(0,"RIFF");v.setUint32(4,36+n*2,true);w(8,"WAVE");w(12,"fmt ");
+    v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);
+    v.setUint32(24,sr,true);v.setUint32(28,sr*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);
+    w(36,"data");v.setUint32(40,n*2,true);
+    for(i=0;i<n;i++){var x=Math.max(-1,Math.min(1,s[i]));v.setInt16(o,x<0?x*0x8000:x*0x7FFF,true);o+=2;}
+    return new Blob([b],{type:"audio/wav"});
+  }
+  function getBlob(rec){
+    if(!rec)return null;
+    if(rec.blob)return rec.blob;
+    if(rec.wav)return rec.wav;
+    if(rec.audio&&rec.audio.samples)return encodeWav(rec.audio.samples,rec.audio.sr);
+    if(rec.samples)return encodeWav(rec.samples,rec.sr);
+    return null;
+  }
+  var refUrl=null,mineUrl=null;
+  function setPlayer(audioEl,wrapEl,rec,which){
+    var blob=getBlob(rec);
+    if(!blob){wrapEl.hidden=true;audioEl.removeAttribute("src");return;}
+    var url=URL.createObjectURL(blob);
+    if(which==="ref"){if(refUrl)try{URL.revokeObjectURL(refUrl);}catch(e){}refUrl=url;}
+    else{if(mineUrl)try{URL.revokeObjectURL(mineUrl);}catch(e){}mineUrl=url;}
+    audioEl.src=url;wrapEl.hidden=false;
+  }
+  function updatePlayers(){
+    var k=key();
+    setPlayer(el.refAudio,el.refPlayer,refs[k],"ref");
+    setPlayer(el.mineAudio,el.minePlayer,attempts[k],"mine");
+    el.clearRef.hidden=!refs[k];
+  }
+
+  /* ---------- practice UI ---------- */
+  function refreshPractice(){
+    if(recState)return;
+    el.level.style.width="0%";
+    var k=key(),ref=refs[k];
+    el.save.disabled=!hasMic;
+    el.compare.disabled=!ref||!hasMic;
+    el.gaugeWrap.hidden=true;
+    updatePlayers();
+    if(!hasMic){el.status.innerHTML="🎙️ Recording isn’t available here - see the note above.";return;}
+    if(ref)el.status.innerHTML="Saved ✓ for "+glyphSpan()+". Press play below, or record &amp; compare.";
+    else el.status.innerHTML="Save a reference for "+glyphSpan()+" to begin.";
+  }
+
+  var hasMD=!!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia);
+  var hasMR=(typeof MediaRecorder!=="undefined");
+  var secure=(window.isSecureContext!==false);
+  var hasMic=hasMD&&hasMR;
+  var recState=null,meterRAF=null,meterCtx=null,decodeCtx=null;
+
+  function micHelp(err){
+    var n=err&&err.name?err.name:"";
+    if(n==="NotAllowedError"||n==="SecurityError"||n==="PermissionDeniedError")
+      return "Microphone permission was blocked. Allow the mic for this page (the icon in the address bar), then try again. If this is running inside an in-app preview, open the downloaded file in a real browser instead.";
+    if(n==="NotFoundError"||n==="DevicesNotFoundError"||n==="NotReadableError"||n==="OverconstrainedError")
+      return "No usable microphone was found. Check that a mic is connected and not in use by another app.";
+    if(!secure)
+      return "Recording needs a secure page. Open this file directly in Chrome or Firefox, or serve it from http://localhost.";
+    return "Couldn’t start recording"+(n?" ("+n+")":"")+". Try opening the downloaded file directly in Chrome or Firefox.";
+  }
+  function showBanner(){
+    if(hasMic&&secure){el.micBanner.hidden=true;return;}
+    el.micBanner.hidden=false;
+    if(!hasMR&&!hasMD) el.micBanner.innerHTML="🎙️ This browser doesn’t support in-page recording. Try a recent Chrome or Firefox.";
+    else if(!secure) el.micBanner.innerHTML="🎙️ Recording is disabled because this page isn’t in a secure context. <b>Open the downloaded file directly in a browser</b> (not inside a preview pane) to record and play sound.";
+    else el.micBanner.innerHTML="🎙️ Recording may be blocked here. If the buttons do nothing, open the downloaded file directly in Chrome or Firefox.";
+  }
+
+  function startMeter(stream){
+    try{
+      meterCtx=new (window.AudioContext||window.webkitAudioContext)();
+      if(meterCtx.resume)meterCtx.resume();
+      var src=meterCtx.createMediaStreamSource(stream),an=meterCtx.createAnalyser();
+      an.fftSize=512;src.connect(an);var data=new Uint8Array(an.fftSize);
+      (function loop(){
+        an.getByteTimeDomainData(data);
+        var s=0;for(var i=0;i<data.length;i++){var v=(data[i]-128)/128;s+=v*v;}
+        el.level.style.width=(Math.min(1,Math.sqrt(s/data.length)*5)*100).toFixed(0)+"%";
+        meterRAF=requestAnimationFrame(loop);
+      })();
+    }catch(e){}
+  }
+  function stopMeter(){
+    if(meterRAF)cancelAnimationFrame(meterRAF);meterRAF=null;
+    if(meterCtx){try{meterCtx.close();}catch(e){}meterCtx=null;}
+    el.level.style.width="0%";
+  }
+  function pickMime(){
+    if(typeof MediaRecorder==="undefined"||!MediaRecorder.isTypeSupported)return "";
+    var c=["audio/webm;codecs=opus","audio/webm","audio/ogg;codecs=opus","audio/ogg","audio/mp4"];
+    for(var i=0;i<c.length;i++)if(MediaRecorder.isTypeSupported(c[i]))return c[i];
+    return "";
+  }
+
+  function beginRecord(purpose){
+    if(recState||!hasMic)return;
+    var btn=purpose==="save"?el.save:el.compare;
+    navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}})
+    .then(function(stream){
+      var mime=pickMime(),mr;
+      try{mr=mime?new MediaRecorder(stream,{mimeType:mime}):new MediaRecorder(stream);}
+      catch(e){mr=new MediaRecorder(stream);}
+      var chunks=[];
+      mr.ondataavailable=function(e){if(e.data&&e.data.size)chunks.push(e.data);};
+      mr.onstop=function(){
+        var blob=new Blob(chunks,{type:mr.mimeType||mime||"audio/webm"});
+        try{stream.getTracks().forEach(function(t){t.stop();});}catch(e){}
+        stopMeter();finishRecord(blob,purpose);
+      };
+      startMeter(stream);
+      mr.start();
+      recState={purpose:purpose,mr:mr,stream:stream,timer:setTimeout(function(){try{mr.stop();}catch(e){}},2600)};
+      btn.classList.add("recording");btn.innerHTML='<span class="rec-dot"></span> Recording… tap to stop';
+      (purpose==="save"?el.compare:el.save).disabled=true;el.prev.disabled=true;
+      el.status.innerHTML="Listening - say "+glyphSpan()+" clearly.";
+    })
+    .catch(function(err){stopMeter();el.status.innerHTML="🎙️ "+micHelp(err);});
+  }
+  function endRecord(){
+    if(!recState)return;clearTimeout(recState.timer);
+    try{recState.mr.stop();}catch(e){var p=recState.purpose;stopMeter();finishRecord(null,p);}
+  }
+  function finishRecord(blob,purpose){
+    recState=null;
+    el.save.classList.remove("recording");el.compare.classList.remove("recording");
+    el.save.innerHTML="🎙️ Save reference";el.compare.innerHTML="🎯 Record &amp; compare";
+    if(!blob){refreshButtons();return;}
+    decodeBlob(blob).then(function(res){store(blob,res.samples,res.sr,purpose);})
+                    .catch(function(){store(blob,null,null,purpose);});
+  }
+  function decodeBlob(blob){
+    return (blob.arrayBuffer?blob.arrayBuffer():new Response(blob).arrayBuffer()).then(function(ab){
+      return new Promise(function(res,rej){
+        if(!decodeCtx)decodeCtx=new (window.AudioContext||window.webkitAudioContext)();
+        function ok(b){res({samples:b.getChannelData(0),sr:b.sampleRate});}
+        var p=decodeCtx.decodeAudioData(ab,ok,rej);
+        if(p&&p.then)p.then(ok,rej);
+      });
+    });
+  }
+  function store(blob,samples,sr,purpose){
+    var k=key(),feats=null;
+    if(samples){var trimmed=trimSilence(samples);if(trimmed&&trimmed.length>800)feats=mfccSequence(trimmed,sr);}
+    if(purpose==="save"){
+      var rec={key:k,blob:blob,feats:feats};refs[k]=rec;dbPut(rec);
+      el.status.innerHTML=(feats?"Reference saved for ":"Saved for ")+glyphSpan()+" ✓ - press play below to hear it."+
+        (feats?"<br>Now <b>Record &amp; compare</b> to score a try.":" (Couldn’t analyse it for scoring.)");
+    }else{
+      attempts[k]={blob:blob};var ref=refs[k];
+      if(ref&&ref.feats&&feats)showScore(similarity(ref.feats,feats));
+      else if(!feats)el.status.innerHTML="Recorded - press play below to hear it. (Couldn’t analyse it for scoring.)";
+      else el.status.innerHTML="Recorded ✓ - press play below to hear it.";
+    }
+    refreshButtons();
+  }
+  function refreshButtons(){
+    var k=key();
+    el.save.disabled=!hasMic;el.compare.disabled=!refs[k]||!hasMic;el.prev.disabled=(state[active].hpos===0);
+    updatePlayers();el.level.style.width="0%";
+  }
+
+  /* ---------- silence trim ---------- */
+  function trimSilence(x){
+    var n=x.length,w=800,rms=[],i,j;
+    for(i=0;i<n;i+=w){var s=0,c=0;for(j=i;j<i+w&&j<n;j++){s+=x[j]*x[j];c++;}rms.push(Math.sqrt(s/Math.max(1,c)));}
+    var peak=0;for(i=0;i<rms.length;i++)peak=Math.max(peak,rms[i]);
+    if(peak<0.012)return null;
+    var thr=Math.max(peak*0.18,0.01),lo=-1,hi=-1;
+    for(i=0;i<rms.length;i++){if(rms[i]>=thr){if(lo<0)lo=i;hi=i;}}
+    if(lo<0)return null;
+    return x.subarray(Math.max(0,lo*w-w),Math.min(n,(hi+1)*w+w));
+  }
+
+  /* ---------- MFCC + DTW ---------- */
+  function fft(re,im){var n=re.length,i,j,bit,len,k,t;
+    for(i=1,j=0;i<n;i++){for(bit=n>>1;j&bit;bit>>=1)j^=bit;j^=bit;
+      if(i<j){t=re[i];re[i]=re[j];re[j]=t;t=im[i];im[i]=im[j];im[j]=t;}}
+    for(len=2;len<=n;len<<=1){var ang=-2*Math.PI/len,wr=Math.cos(ang),wi=Math.sin(ang);
+      for(i=0;i<n;i+=len){var cr=1,ci=0;
+        for(k=0;k<len>>1;k++){var ur=re[i+k],ui=im[i+k],
+          vr=re[i+k+(len>>1)]*cr-im[i+k+(len>>1)]*ci,vi=re[i+k+(len>>1)]*ci+im[i+k+(len>>1)]*cr;
+          re[i+k]=ur+vr;im[i+k]=ui+vi;re[i+k+(len>>1)]=ur-vr;im[i+k+(len>>1)]=ui-vi;
+          var ncr=cr*wr-ci*wi;ci=cr*wi+ci*wr;cr=ncr;}}}
+  }
+  var melCache={};
+  function buildMel(sr,NF,nMel){
+    var ck=sr+"_"+NF+"_"+nMel;if(melCache[ck])return melCache[ck];
+    function h2m(f){return 1127*Math.log(1+f/700);}function m2h(m){return 700*(Math.exp(m/1127)-1);}
+    var half=NF>>1,low=h2m(0),high=h2m(sr/2),pts=[],i;
+    for(i=0;i<nMel+2;i++)pts.push(m2h(low+(high-low)*i/(nMel+1)));
+    var bins=pts.map(function(f){return Math.floor((NF+1)*f/sr);}),filt=[];
+    for(i=1;i<=nMel;i++){var f=new Float32Array(half+1),a=bins[i-1],b=bins[i],c=bins[i+1],kk;
+      for(kk=a;kk<b;kk++)if(kk>=0&&kk<=half)f[kk]=(kk-a)/Math.max(1,b-a);
+      for(kk=b;kk<c;kk++)if(kk>=0&&kk<=half)f[kk]=(c-kk)/Math.max(1,c-b);filt.push(f);}
+    return melCache[ck]={filt:filt,half:half};
+  }
+  function mfccSequence(x,sr){
+    var pe=new Float32Array(x.length);pe[0]=x[0];
+    for(var i=1;i<x.length;i++)pe[i]=x[i]-0.97*x[i-1];
+    var flen=Math.round(0.025*sr),hop=Math.round(0.010*sr),NF=1;while(NF<flen)NF<<=1;
+    var nMel=26,mel=buildMel(sr,NF,nMel),half=mel.half,win=new Float32Array(flen);
+    for(i=0;i<flen;i++)win[i]=0.54-0.46*Math.cos(2*Math.PI*i/(flen-1));
+    var frames=[];
+    for(var start=0;start+flen<=pe.length;start+=hop){
+      var re=new Float64Array(NF),im=new Float64Array(NF);
+      for(i=0;i<flen;i++)re[i]=pe[start+i]*win[i];
+      fft(re,im);
+      var pow=new Float64Array(half+1);for(i=0;i<=half;i++)pow[i]=re[i]*re[i]+im[i]*im[i];
+      var lm=new Float64Array(nMel);
+      for(var m=0;m<nMel;m++){var e=0,f=mel.filt[m];for(i=0;i<=half;i++)e+=pow[i]*f[i];lm[m]=Math.log(Math.max(e,1e-10));}
+      var c=new Float32Array(DIM);
+      for(var ci=1;ci<=DIM;ci++){var s=0;for(m=0;m<nMel;m++)s+=lm[m]*Math.cos(Math.PI*ci*(m+0.5)/nMel);c[ci-1]=s;}
+      frames.push(c);
+    }
+    if(frames.length){var mean=new Float64Array(DIM);
+      frames.forEach(function(fr){for(i=0;i<DIM;i++)mean[i]+=fr[i];});
+      for(i=0;i<DIM;i++)mean[i]/=frames.length;
+      frames.forEach(function(fr){for(i=0;i<DIM;i++)fr[i]-=mean[i];});}
+    return frames;
+  }
+  function fdist(p,q){var s=0,i;for(i=0;i<DIM;i++){var d=p[i]-q[i];s+=d*d;}return Math.sqrt(s);}
+  function dtw(A,B){var m=A.length,n=B.length,INF=1e18,i,j;
+    var pc=new Float64Array(n+1),pk=new Float64Array(n+1),cc=new Float64Array(n+1),ck=new Float64Array(n+1);
+    for(j=0;j<=n;j++){pc[j]=INF;pk[j]=0;}pc[0]=0;
+    for(i=1;i<=m;i++){cc[0]=INF;ck[0]=0;
+      for(j=1;j<=n;j++){var c=fdist(A[i-1],B[j-1]),bc=pc[j],bk=pk[j];
+        if(cc[j-1]<bc){bc=cc[j-1];bk=ck[j-1];}if(pc[j-1]<bc){bc=pc[j-1];bk=pk[j-1];}
+        cc[j]=c+bc;ck[j]=bk+1;}
+      var t=pc;pc=cc;cc=t;t=pk;pk=ck;ck=t;}
+    return pc[n]/Math.max(1,pk[n]);
+  }
+  function similarity(A,B){
+    var std=new Float64Array(DIM),cnt=A.length+B.length,i;
+    function acc(S){S.forEach(function(fr){for(i=0;i<DIM;i++)std[i]+=fr[i]*fr[i];});}
+    acc(A);acc(B);for(i=0;i<DIM;i++)std[i]=Math.sqrt(std[i]/cnt)||1;
+    function norm(S){return S.map(function(fr){var g=new Float32Array(DIM);for(i=0;i<DIM;i++)g[i]=fr[i]/std[i];return g;});}
+    var avg=dtw(norm(A),norm(B)),Dmax=Math.sqrt(2*DIM);
+    return Math.max(0,Math.min(100,Math.round(100*(1-avg/Dmax))));
+  }
+
+  function band(s){
+    if(s>=80)return{c:"#5cc39a",t:"Excellent match"};
+    if(s>=60)return{c:"#e8c987",t:"Good - close"};
+    if(s>=40)return{c:"#e0a85a",t:"Getting there"};
+    return{c:"#d98a7a",t:"Keep practising"};
+  }
+  function showScore(score){
+    var bd=band(score);
+    el.gaugeWrap.hidden=false;
+    el.gaugeWrap.innerHTML='<div class="gauge" id="gauge" style="--g:'+bd.c+'"><div class="gauge-hole"><b id="scoreNum" style="color:'+bd.c+'">0</b><small>match</small></div></div>'+
+      '<div class="verdict" style="color:'+bd.c+'">'+bd.t+'</div>'+
+      '<div class="vs">vs your saved '+glyphSpan()+' · record again to retry</div>';
+    var gauge=document.getElementById("gauge"),num=document.getElementById("scoreNum"),t0=performance.now();
+    (function step(now){var k=Math.min(1,(now-t0)/700),v=Math.round(score*k);
+      gauge.style.setProperty("--p",v);num.textContent=v;if(k<1)requestAnimationFrame(step);})(t0);
+  }
+
+  /* ---------- events ---------- */
+  document.getElementById("next").addEventListener("click",goNext);
+  el.prev.addEventListener("click",goPrev);
+  el.tabs.forEach(function(t){t.addEventListener("click",function(){switchTab(+t.dataset.tab);});});
+  el.save.addEventListener("click",function(){if(recState){if(recState.purpose==="save")endRecord();return;}beginRecord("save");});
+  el.compare.addEventListener("click",function(){if(recState){if(recState.purpose==="compare")endRecord();return;}if(refs[key()])beginRecord("compare");});
+  el.clearRef.addEventListener("click",function(){var k=key();delete refs[k];dbDel(k);el.gaugeWrap.hidden=true;refreshPractice();});
+
+  document.addEventListener("keydown",function(e){
+    if(e.metaKey||e.ctrlKey||e.altKey)return;var k=e.key.toLowerCase();
+    if(k==="arrowright"||k===" "){e.preventDefault();goNext();}
+    else if(k==="arrowleft"){e.preventDefault();goPrev();}
+    else if(k==="1")switchTab(0);else if(k==="2")switchTab(1);else if(k==="3")switchTab(2);
+    else if(k==="s")el.save.click();else if(k==="c"){if(!el.compare.disabled)el.compare.click();}
+  });
+
+  if(!hasMic){el.save.disabled=true;el.compare.disabled=true;}
+
+  (function init(){
+    showBanner();
+    dbOpen().then(dbAll).then(function(all){
+      all.forEach(function(r){refs[r.key]=r;});
+      el.persist.textContent=memOnly?"approximate · this session":"approximate · saved on device";
+      state.forEach(function(st){st.hist=[pick(st)];st.hpos=0;});
+      render(true);
+    });
+  })();
+})();
+</script>
+
+<script>
+/* ============================================================
+   ▼▼▼  PASTE YOUR PROFILE LINKS HERE  ▼▼▼
+   Put each URL between the quotes. Leave "" to dim that icon.
+   ============================================================ */
+var PROFILE_LINKS = {
+  profile:      "https://tanzirmehedi.github.io/",   // Personal website / profile
+  scholar:      "https://scholar.google.com/citations?user=tfKIiZoAAAAJ&hl=en",   // Google Scholar
+  orcid:        "https://orcid.org/0000-0003-4435-7856",   // ORCID
+  researchgate: "https://www.researchgate.net/profile/Sk-Mehedi-2",   // ResearchGate
+  facebook:     "https://www.facebook.com/tanzirmehedi.ict/",   // Facebook
+  linkedin:     "https://www.linkedin.com/in/tanzirmehedi/"    // LinkedIn
+};
+/* ▲▲▲  nothing else to edit below  ▲▲▲ */
+(function(){
+  var ids={profile:"link-profile",scholar:"link-scholar",orcid:"link-orcid",
+           researchgate:"link-researchgate",facebook:"link-facebook",linkedin:"link-linkedin"};
+  Object.keys(ids).forEach(function(k){
+    var a=document.getElementById(ids[k]),url=(PROFILE_LINKS[k]||"").trim();
+    if(!a)return;
+    if(url){a.href=url;a.target="_blank";a.rel="noopener noreferrer";a.classList.remove("pending");}
+    else{a.classList.add("pending");a.title=a.title+" - add link";
+      a.addEventListener("click",function(e){e.preventDefault();});}
+  });
+})();
+</script>
+</body>
+</html>
