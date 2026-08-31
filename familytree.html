@@ -2,188 +2,307 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Family Tree of Sk Tanzir Mehedi" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Family Tree of Sk Tanzir Mehedi"
+  />
 
   <title>Family Tree of Sk Tanzir Mehedi</title>
 
   <style>
+
+    /* =====================================================
+       GLOBAL VARIABLES
+    ===================================================== */
+
     :root {
-      --bg: #f7f8fa;
+
+      --bg: #f6f8fb;
       --paper: #ffffff;
+
       --text: #18212f;
       --muted: #6b7280;
-      --line: #7f8b99;
-      --border: #d8dee7;
 
-      --paternal: #eef3f8;
-      --maternal: #f8f3e8;
-      --self: #edf6f2;
-      --sibling: #f8f0f3;
-      --spouse: #eef4fa;
+      --line: #8b98a6;
+      --border: #d9e0e8;
+
+      --paternal: #edf3f8;
+      --maternal: #faf4e8;
+
+      --self: #eaf5f0;
+      --sibling: #f8eef2;
+      --spouse: #edf4fa;
       --child: #f4f6f8;
 
-      --shadow: 0 14px 35px rgba(15, 23, 42, 0.07);
+      --shadow:
+        0 14px 40px rgba(15, 23, 42, 0.07);
+
+      --radius: 14px;
     }
+
 
     * {
       box-sizing: border-box;
     }
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
+
+    html {
+      scroll-behavior: smooth;
     }
 
-    /* =========================================
+
+    body {
+
+      margin: 0;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+      line-height: 1.45;
+
+      -webkit-font-smoothing: antialiased;
+    }
+
+
+    /* =====================================================
        HEADER
-    ========================================= */
+    ===================================================== */
 
     .topbar {
-      background: #ffffff;
+
+      background: rgba(255, 255, 255, 0.97);
+
       border-bottom: 1px solid #e5e7eb;
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 100;
+
+      backdrop-filter: blur(12px);
     }
 
+
     .topbar-inner {
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: 20px 28px;
+
+      width: min(1500px, 100%);
+
+      margin: auto;
+
+      padding: 18px 28px;
 
       display: flex;
-      justify-content: space-between;
+
       align-items: center;
+
+      justify-content: space-between;
 
       gap: 20px;
     }
 
+
     .title-wrap h1 {
+
       margin: 0;
 
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 2rem;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(1.45rem, 2.5vw, 2rem);
+
       font-weight: 600;
 
       color: #132238;
+
       letter-spacing: -0.02em;
     }
 
+
     .title-wrap p {
-      margin: 5px 0 0;
+
+      margin: 4px 0 0;
 
       color: var(--muted);
-      font-size: 0.9rem;
+
+      font-size: 0.88rem;
     }
 
+
     .actions {
+
       display: flex;
-      gap: 10px;
+
+      align-items: center;
+
+      gap: 9px;
+
       flex-wrap: wrap;
     }
 
+
     .btn {
-      border: 1px solid #d7dde5;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 38px;
+
+      padding: 8px 13px;
+
+      border: 1px solid #d5dde6;
+
+      border-radius: 8px;
+
       background: #ffffff;
 
       color: #334155;
 
       text-decoration: none;
 
-      padding: 9px 13px;
-      border-radius: 8px;
+      font-size: 0.84rem;
 
-      font-size: 0.86rem;
       font-weight: 600;
 
       cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        border 0.2s ease,
+        transform 0.2s ease;
     }
+
 
     .btn:hover {
+
       background: #f8fafc;
+
+      border-color: #b8c3cf;
+
+      transform: translateY(-1px);
     }
 
-    /* =========================================
+
+    /* =====================================================
        PAGE
-    ========================================= */
+    ===================================================== */
 
     .page {
-      max-width: 1500px;
 
-      margin: 28px auto 48px;
+      width: min(1500px, 100%);
+
+      margin: 28px auto 45px;
 
       padding: 0 22px;
     }
 
+
     .description {
+
+      width: min(760px, 100%);
+
+      margin:
+        0 auto
+        clamp(18px, 3vw, 28px);
+
       text-align: center;
 
-      max-width: 760px;
+      color: #64748b;
 
-      margin: 0 auto 24px;
+      font-size:
+        clamp(0.82rem, 1.4vw, 0.94rem);
 
-      color: #6b7280;
-
-      font-size: 0.94rem;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
-    /* =========================================
-       FAMILY TREE CONTAINER
-    ========================================= */
+
+    /* =====================================================
+       TREE CONTAINER
+    ===================================================== */
 
     .tree-paper {
+
+      width: 100%;
+
       background: var(--paper);
 
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e1e7ee;
 
       border-radius: 18px;
 
       box-shadow: var(--shadow);
 
-      padding: 36px 26px 42px;
+      padding:
+        clamp(22px, 3vw, 38px)
+        clamp(14px, 2.5vw, 28px)
+        42px;
 
       overflow-x: auto;
+
+      overscroll-behavior-inline: contain;
     }
+
 
     .tree {
-      min-width: 1240px;
 
-      margin: 0 auto;
+      min-width: 1220px;
+
+      width: 100%;
+
+      margin: auto;
     }
 
+
     .section-label {
+
+      margin-bottom: 18px;
+
       text-align: center;
 
-      font-size: 0.72rem;
+      color: #7b8796;
+
+      font-size: 0.7rem;
+
+      font-weight: 700;
 
       text-transform: uppercase;
 
       letter-spacing: 0.15em;
-
-      color: #7c8795;
-
-      font-weight: 700;
-
-      margin-bottom: 18px;
     }
 
-    /* =========================================
-       PERSON CARDS
-    ========================================= */
+
+    /* =====================================================
+       PERSON
+    ===================================================== */
 
     .person {
-      border: 1px solid var(--border);
 
-      background: #ffffff;
+      position: relative;
 
-      border-radius: 10px;
-
-      padding: 11px 12px;
-
-      text-align: center;
+      min-width: 0;
 
       min-height: 68px;
+
+      padding: 11px 10px;
 
       display: flex;
 
@@ -191,198 +310,261 @@
 
       justify-content: center;
 
-      position: relative;
+      text-align: center;
+
+      border: 1px solid var(--border);
+
+      border-radius: 10px;
+
+      background: #ffffff;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
-    .person .name {
-      font-size: 0.9rem;
 
-      font-weight: 700;
+    .person .name {
 
       color: #1f2937;
 
-      line-height: 1.25;
+      font-size:
+        clamp(0.76rem, 1.1vw, 0.9rem);
+
+      font-weight: 700;
+
+      line-height: 1.3;
+
+      overflow-wrap: anywhere;
     }
 
-    .person .relation {
-      margin-top: 4px;
 
-      font-size: 0.72rem;
+    .person .relation {
+
+      margin-top: 4px;
 
       color: #6b7280;
 
-      line-height: 1.2;
+      font-size:
+        clamp(0.65rem, 0.9vw, 0.72rem);
+
+      line-height: 1.3;
     }
 
-    /* =========================================
+
+    /* =====================================================
        FAMILY COLOURS
-    ========================================= */
+    ===================================================== */
 
     .person.paternal {
       background: var(--paternal);
     }
 
+
     .person.maternal {
       background: var(--maternal);
     }
+
 
     .person.sibling {
       background: var(--sibling);
     }
 
+
     .person.spouse {
       background: var(--spouse);
     }
+
 
     .person.child {
       background: var(--child);
     }
 
-    /* =========================================
-       FATHER AND MOTHER HIGHLIGHT
-    ========================================= */
+
+    /* =====================================================
+       PARENT HIGHLIGHT
+    ===================================================== */
 
     .person.parent-highlight {
-      border: 2px solid #3f5f7f;
+
+      border: 2px solid #476783;
 
       box-shadow:
-        0 0 0 3px rgba(63, 95, 127, 0.10),
-        0 8px 20px rgba(15, 23, 42, 0.10);
-
-      transform: translateY(-2px);
+        0 0 0 3px rgba(71, 103, 131, 0.08),
+        0 7px 18px rgba(15, 23, 42, 0.08);
     }
+
 
     .person.parent-highlight.maternal {
-      border-color: #a87522;
+
+      border-color: #aa792b;
 
       box-shadow:
-        0 0 0 3px rgba(168, 117, 34, 0.10),
-        0 8px 20px rgba(15, 23, 42, 0.10);
+        0 0 0 3px rgba(170, 121, 43, 0.08),
+        0 7px 18px rgba(15, 23, 42, 0.08);
     }
 
+
     .person.parent-highlight .name {
-      font-size: 0.95rem;
 
       font-weight: 800;
     }
 
+
     .person.parent-highlight .relation {
-      font-weight: 700;
 
       color: #475569;
 
-      letter-spacing: 0.02em;
+      font-weight: 700;
     }
 
-    /* =========================================
-       SK TANZIR MEHEDI HIGHLIGHT
-    ========================================= */
+
+    /* =====================================================
+       TANZIR HIGHLIGHT
+    ===================================================== */
 
     .person.self {
+
       background: var(--self);
 
-      border: 2px solid #5d8e7f;
+      border: 2px solid #568a78;
 
       box-shadow:
-        0 0 0 3px rgba(93, 142, 127, 0.09),
-        0 8px 18px rgba(15, 23, 42, 0.08);
+        0 0 0 3px rgba(86, 138, 120, 0.08),
+        0 7px 18px rgba(15, 23, 42, 0.08);
     }
 
+
     .person.self .name {
-      font-size: 0.98rem;
+
+      font-size: 0.96rem;
 
       font-weight: 800;
     }
 
-    /* =========================================
-       COUPLE CONNECTION
-    ========================================= */
+
+    /* =====================================================
+       COUPLE
+    ===================================================== */
 
     .couple {
+
       display: grid;
 
-      grid-template-columns: 1fr 54px 1fr;
+      grid-template-columns:
+        minmax(0, 1fr)
+        54px
+        minmax(0, 1fr);
 
       align-items: center;
 
       gap: 0;
     }
 
+
     .couple-line {
+
+      position: relative;
+
+      width: 100%;
+
       height: 1.5px;
 
       background: var(--line);
-
-      position: relative;
     }
 
+
     .couple-line::after {
+
       content: "";
 
       position: absolute;
 
+      left: 50%;
+
+      top: 50%;
+
       width: 7px;
+
       height: 7px;
 
       border: 1.5px solid var(--line);
 
-      background: #ffffff;
-
       border-radius: 50%;
 
-      left: 50%;
-      top: 50%;
+      background: #ffffff;
 
-      transform: translate(-50%, -50%);
+      transform:
+        translate(-50%, -50%);
     }
 
-    /* =========================================
-       GRANDPARENT LAYOUT
-    ========================================= */
+
+    /* =====================================================
+       GRANDPARENT SECTIONS
+    ===================================================== */
 
     .grandparents-grid {
+
       display: grid;
 
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
 
-      gap: 60px;
+      gap: clamp(28px, 4vw, 60px);
     }
 
-    .lineage-card {
-      padding: 20px 20px 22px;
 
-      border: 1px solid #e0e5eb;
+    .lineage-card {
+
+      min-width: 0;
+
+      padding:
+        20px
+        clamp(12px, 2vw, 20px)
+        22px;
+
+      border: 1px solid #e0e6ed;
 
       border-radius: 14px;
 
       background: #ffffff;
     }
 
+
     .lineage-title {
+
+      margin-bottom: 14px;
+
       text-align: center;
-
-      font-family: Georgia, "Times New Roman", serif;
-
-      font-size: 1.05rem;
-
-      font-weight: 600;
 
       color: #354458;
 
-      margin-bottom: 14px;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 1.04rem;
+
+      font-weight: 600;
     }
 
-    /* =========================================
-       DESCENDANT CONNECTIONS
-    ========================================= */
+
+    /* =====================================================
+       DESCENDANTS
+    ===================================================== */
 
     .descendants {
+
       position: relative;
 
       padding-top: 28px;
     }
 
+
     .descendants::before {
+
       content: "";
 
       position: absolute;
@@ -400,17 +582,21 @@
       transform: translateX(-50%);
     }
 
-    .descendant-row {
-      display: grid;
 
-      gap: 10px;
+    .descendant-row {
 
       position: relative;
+
+      display: grid;
+
+      gap: 9px;
 
       padding-top: 15px;
     }
 
+
     .descendant-row::before {
+
       content: "";
 
       position: absolute;
@@ -426,7 +612,9 @@
       background: var(--line);
     }
 
+
     .descendant-row > .person::before {
+
       content: "";
 
       position: absolute;
@@ -444,90 +632,112 @@
       transform: translateX(-50%);
     }
 
+
     .five {
-      grid-template-columns: repeat(5, 1fr);
+
+      grid-template-columns:
+        repeat(5, minmax(0, 1fr));
     }
+
 
     .seven {
-      grid-template-columns: repeat(7, 1fr);
+
+      grid-template-columns:
+        repeat(7, minmax(0, 1fr));
     }
 
-    /* =========================================
-       FAMILY MERGE
-    ========================================= */
+
+    /* =====================================================
+       PATERNAL / MATERNAL MERGE
+    ===================================================== */
 
     .merge-zone {
-      height: 110px;
 
       position: relative;
+
+      height: 110px;
     }
+
 
     .merge-zone .left-v,
     .merge-zone .right-v,
     .merge-zone .mid-v,
     .merge-zone .h {
+
       position: absolute;
 
       background: var(--line);
     }
 
-    .merge-zone .left-v {
-      width: 1.5px;
 
-      height: 45px;
+    .merge-zone .left-v {
 
       left: 25%;
 
       top: 0;
-    }
 
-    .merge-zone .right-v {
       width: 1.5px;
 
       height: 45px;
+    }
+
+
+    .merge-zone .right-v {
 
       right: 25%;
 
       top: 0;
+
+      width: 1.5px;
+
+      height: 45px;
     }
 
+
     .merge-zone .h {
-      height: 1.5px;
 
       left: 25%;
 
       right: 25%;
 
       top: 44px;
+
+      height: 1.5px;
     }
 
-    .merge-zone .mid-v {
-      width: 1.5px;
 
-      height: 66px;
+    .merge-zone .mid-v {
 
       left: 50%;
 
       top: 44px;
 
+      width: 1.5px;
+
+      height: 66px;
+
       transform: translateX(-50%);
     }
 
-    /* =========================================
+
+    /* =====================================================
        PARENTS
-    ========================================= */
+    ===================================================== */
 
     .parents-block {
-      width: 620px;
-
-      margin: 0 auto;
 
       position: relative;
+
+      width: min(620px, 100%);
+
+      margin: 0 auto;
 
       padding-bottom: 26px;
     }
 
+
     .parents-block::after {
+
       content: "";
 
       position: absolute;
@@ -545,30 +755,36 @@
       transform: translateX(-50%);
     }
 
+
     .parents-frame {
+
+      padding: 18px;
+
       border: 1px solid #d8e0e8;
 
       border-radius: 14px;
 
-      padding: 18px;
-
       background: #fbfcfd;
 
       box-shadow:
-        0 8px 22px rgba(15, 23, 42, 0.05);
+        0 7px 20px rgba(15, 23, 42, 0.04);
     }
 
-    /* =========================================
-       CHILDREN OF PARENTS
-    ========================================= */
+
+    /* =====================================================
+       MAIN CHILDREN
+    ===================================================== */
 
     .children-main {
+
       position: relative;
 
       padding-top: 18px;
     }
 
+
     .children-main::before {
+
       content: "";
 
       position: absolute;
@@ -584,28 +800,38 @@
       background: var(--line);
     }
 
+
     .main-grid {
+
       display: grid;
 
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns:
+        repeat(4, minmax(0, 1fr));
 
-      gap: 22px;
+      gap:
+        clamp(15px, 2vw, 22px);
     }
 
+
     .family-unit {
+
       position: relative;
+
+      min-width: 0;
 
       padding-top: 16px;
     }
 
+
     .family-unit::before {
+
       content: "";
 
       position: absolute;
 
-      top: 0;
-
       left: 50%;
+
+      top: 0;
 
       width: 1.5px;
 
@@ -616,31 +842,44 @@
       transform: translateX(-50%);
     }
 
+
     .family-unit .couple {
-      grid-template-columns: 1fr 40px 1fr;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        36px
+        minmax(0, 1fr);
     }
+
 
     .family-unit.single {
-      padding-left: 30px;
 
-      padding-right: 30px;
+      padding-left: 25px;
+
+      padding-right: 25px;
     }
 
+
     .family-unit.single .person {
+
       min-height: 74px;
     }
 
-    /* =========================================
+
+    /* =====================================================
        NEXT GENERATION
-    ========================================= */
+    ===================================================== */
 
     .next-gen {
+
       position: relative;
 
       padding-top: 26px;
     }
 
+
     .next-gen::before {
+
       content: "";
 
       position: absolute;
@@ -658,21 +897,28 @@
       transform: translateX(-50%);
     }
 
+
     .next-row {
+
+      position: relative;
+
       display: grid;
 
       gap: 10px;
 
-      position: relative;
-
       padding-top: 13px;
     }
 
+
     .next-row.two {
-      grid-template-columns: 1fr 1fr;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
     }
 
+
     .next-row.one {
+
       grid-template-columns: 1fr;
 
       padding-left: 20%;
@@ -680,7 +926,9 @@
       padding-right: 20%;
     }
 
+
     .next-row.two::before {
+
       content: "";
 
       position: absolute;
@@ -696,7 +944,9 @@
       background: var(--line);
     }
 
+
     .next-row > .person::before {
+
       content: "";
 
       position: absolute;
@@ -714,31 +964,37 @@
       transform: translateX(-50%);
     }
 
-    /* =========================================
+
+    /* =====================================================
        LEGEND
-    ========================================= */
+    ===================================================== */
 
     .legend {
-      margin-top: 30px;
+
+      margin-top: 32px;
+
+      padding-top: 18px;
+
+      border-top: 1px solid #e5e7eb;
 
       display: flex;
 
       justify-content: center;
 
+      align-items: center;
+
       flex-wrap: wrap;
 
-      gap: 15px 22px;
+      gap: 12px 20px;
 
       color: #6b7280;
 
-      font-size: 0.76rem;
-
-      border-top: 1px solid #e5e7eb;
-
-      padding-top: 18px;
+      font-size: 0.75rem;
     }
 
+
     .legend-item {
+
       display: inline-flex;
 
       align-items: center;
@@ -746,129 +1002,773 @@
       gap: 7px;
     }
 
+
     .swatch {
+
       width: 11px;
 
       height: 11px;
 
-      border-radius: 2px;
-
       border: 1px solid #cbd5e1;
+
+      border-radius: 3px;
     }
 
-    /* =========================================
+
+    /* =====================================================
        FOOTER
-    ========================================= */
+    ===================================================== */
 
     footer {
+
+      padding: 24px 15px 34px;
+
       text-align: center;
 
       color: #9aa3af;
 
-      padding: 26px 20px 36px;
-
-      font-size: 0.82rem;
+      font-size: 0.8rem;
     }
 
-    /* =========================================
-       MOBILE
-    ========================================= */
 
-    @media (max-width: 800px) {
+    /* =====================================================
+       TABLET
+       1200px and below
+    ===================================================== */
 
-      .topbar-inner {
-        flex-direction: column;
+    @media (max-width: 1200px) {
 
-        align-items: flex-start;
+      .tree {
 
-        padding: 16px 18px;
+        min-width: 1000px;
       }
 
-      .page {
-        padding: 0 10px;
 
-        margin-top: 18px;
+      .grandparents-grid {
+
+        gap: 30px;
       }
 
-      .tree-paper {
-        padding: 26px 14px 34px;
+
+      .descendant-row {
+
+        gap: 7px;
       }
+
+
+      .person {
+
+        padding:
+          10px 7px;
+      }
+
+
+      .main-grid {
+
+        gap: 14px;
+      }
+
     }
 
-    /* =========================================
-       PRINT
-    ========================================= */
 
-    @media print {
+    /* =====================================================
+       SMALL TABLET
+       950px and below
 
-      @page {
-        size: A3 landscape;
-        margin: 10mm;
-      }
+       Switch from wide genealogy layout
+       to responsive stacked layout.
+    ===================================================== */
 
-      body {
-        background: #ffffff;
-      }
-
-      .topbar .actions,
-      footer {
-        display: none !important;
-      }
+    @media (max-width: 950px) {
 
       .topbar {
-        border-bottom: none;
+
+        position: static;
       }
 
-      .topbar-inner {
-        justify-content: center;
-
-        text-align: center;
-
-        padding: 8px 0 18px;
-      }
-
-      .page {
-        margin: 0;
-
-        padding: 0;
-
-        max-width: none;
-      }
-
-      .description {
-        margin-bottom: 12px;
-      }
 
       .tree-paper {
-        box-shadow: none;
-
-        border: none;
-
-        padding: 0;
 
         overflow: visible;
       }
 
+
       .tree {
+
         min-width: 0;
       }
 
-      .legend {
+
+      /*
+       Paternal and maternal families
+       become vertical sections.
+      */
+
+      .grandparents-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+      }
+
+
+      /*
+       Remove the desktop cross-line merge.
+       The parent section itself makes
+       the relationship clear.
+      */
+
+      .merge-zone {
+
         display: none;
       }
+
+
+      .parents-block {
+
+        margin-top: 38px;
+      }
+
+
+      /*
+       Grandparent children become
+       vertical genealogy lists.
+      */
+
+      .descendants {
+
+        margin-top: 10px;
+
+        margin-left: 14px;
+
+        padding:
+          16px 0
+          0
+          26px;
+
+        border-left:
+          1.5px solid var(--line);
+      }
+
+
+      .descendants::before {
+
+        display: none;
+      }
+
+
+      .descendant-row {
+
+        display: grid;
+
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr)) !important;
+
+        gap: 10px;
+
+        padding-top: 0;
+      }
+
+
+      .descendant-row::before {
+
+        display: none;
+      }
+
+
+      .descendant-row > .person::before {
+
+        top: 50%;
+
+        left: -26px;
+
+        width: 26px;
+
+        height: 1.5px;
+
+        transform: none;
+      }
+
+
+      /*
+       Children of parents:
+       2 columns on tablet.
+      */
+
+      .main-grid {
+
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        gap: 26px 18px;
+      }
+
+
+      .children-main {
+
+        padding-top: 26px;
+      }
+
+
+      .children-main::before {
+
+        display: none;
+      }
+
+
+      .family-unit {
+
+        padding-top: 0;
+      }
+
+
+      .family-unit::before {
+
+        display: none;
+      }
+
+
+      .family-unit.single {
+
+        padding-left: 0;
+
+        padding-right: 0;
+      }
+
+
+      .family-unit {
+
+        padding:
+          18px;
+
+        border: 1px solid #e4e9ef;
+
+        border-radius: 13px;
+
+        background: #fcfdfe;
+      }
+
     }
+
+
+    /* =====================================================
+       MOBILE
+       650px and below
+    ===================================================== */
+
+    @media (max-width: 650px) {
+
+      .topbar-inner {
+
+        padding:
+          15px
+          16px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+      }
+
+
+      .actions {
+
+        width: 100%;
+      }
+
+
+      .btn {
+
+        flex: 1;
+
+        min-width: 130px;
+      }
+
+
+      .page {
+
+        margin-top: 18px;
+
+        padding:
+          0
+          10px;
+      }
+
+
+      .tree-paper {
+
+        border-radius: 14px;
+
+        padding:
+          22px
+          12px
+          30px;
+      }
+
+
+      .section-label {
+
+        margin-top: 5px;
+
+        font-size: 0.64rem;
+
+        line-height: 1.5;
+      }
+
+
+      .lineage-card {
+
+        padding:
+          17px
+          12px
+          19px;
+      }
+
+
+      /*
+       Grandparent children:
+       one per row.
+      */
+
+      .descendant-row {
+
+        grid-template-columns: 1fr !important;
+      }
+
+
+      /*
+       All main siblings become one column.
+      */
+
+      .main-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+      }
+
+
+      .family-unit {
+
+        width: 100%;
+
+        max-width: 580px;
+
+        margin: auto;
+      }
+
+
+      /*
+       Parents still remain side-by-side
+       where possible.
+      */
+
+      .parents-frame {
+
+        padding: 13px;
+      }
+
+
+      .couple {
+
+        grid-template-columns:
+          minmax(0, 1fr)
+          32px
+          minmax(0, 1fr);
+      }
+
+
+      .family-unit .couple {
+
+        grid-template-columns:
+          minmax(0, 1fr)
+          28px
+          minmax(0, 1fr);
+      }
+
+
+      .legend {
+
+        justify-content: flex-start;
+
+        gap: 10px 15px;
+      }
+
+    }
+
+
+    /* =====================================================
+       SMALL MOBILE
+       430px and below
+    ===================================================== */
+
+    @media (max-width: 430px) {
+
+      /*
+       On very narrow devices,
+       couples become vertical.
+      */
+
+      .couple,
+      .family-unit .couple {
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        justify-items: stretch;
+      }
+
+
+      .couple-line {
+
+        width: 1.5px;
+
+        height: 24px;
+
+        margin: auto;
+
+        background: var(--line);
+      }
+
+
+      .couple-line::after {
+
+        width: 6px;
+
+        height: 6px;
+      }
+
+
+      .person {
+
+        min-height: 62px;
+
+        padding:
+          10px
+          8px;
+      }
+
+
+      .person .name {
+
+        font-size: 0.83rem;
+      }
+
+
+      .person .relation {
+
+        font-size: 0.67rem;
+      }
+
+
+      .next-row.two {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+      }
+
+
+      .next-row.two::before {
+
+        display: none;
+      }
+
+
+      .next-row.two > .person::before {
+
+        display: none;
+      }
+
+
+      .next-row.one {
+
+        padding-left: 0;
+
+        padding-right: 0;
+      }
+
+
+      .next-row.one > .person::before {
+
+        display: none;
+      }
+
+
+      .next-gen {
+
+        padding-top: 18px;
+      }
+
+
+      .next-gen::before {
+
+        height: 13px;
+      }
+
+
+      .btn {
+
+        width: 100%;
+
+        flex: 1 1 100%;
+      }
+
+
+      .legend {
+
+        display: grid;
+
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        font-size: 0.7rem;
+      }
+
+    }
+
+
+    /* =====================================================
+       EXTRA SMALL MOBILE
+    ===================================================== */
+
+    @media (max-width: 340px) {
+
+      .title-wrap h1 {
+
+        font-size: 1.25rem;
+      }
+
+
+      .tree-paper {
+
+        padding-left: 8px;
+
+        padding-right: 8px;
+      }
+
+
+      .family-unit {
+
+        padding:
+          13px
+          8px;
+      }
+
+
+      .legend {
+
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    /* =====================================================
+       PRINT
+    ===================================================== */
+
+    @media print {
+
+      @page {
+
+        size: A3 landscape;
+
+        margin: 9mm;
+      }
+
+
+      body {
+
+        background: #ffffff;
+      }
+
+
+      .topbar {
+
+        position: static;
+
+        border: none;
+      }
+
+
+      .topbar .actions,
+      footer {
+
+        display: none !important;
+      }
+
+
+      .topbar-inner {
+
+        justify-content: center;
+
+        text-align: center;
+
+        padding:
+          5px
+          0
+          16px;
+      }
+
+
+      .page {
+
+        width: 100%;
+
+        max-width: none;
+
+        margin: 0;
+
+        padding: 0;
+      }
+
+
+      .description {
+
+        margin-bottom: 12px;
+      }
+
+
+      .tree-paper {
+
+        overflow: visible;
+
+        border: none;
+
+        border-radius: 0;
+
+        box-shadow: none;
+
+        padding: 0;
+      }
+
+
+      .tree {
+
+        min-width: 0;
+      }
+
+
+      .legend {
+
+        display: none;
+      }
+
+
+      /*
+       Force desktop structure
+       when printing.
+      */
+
+      .grandparents-grid {
+
+        grid-template-columns:
+          1fr
+          1fr;
+      }
+
+
+      .merge-zone {
+
+        display: block;
+      }
+
+
+      .descendants {
+
+        margin: 0;
+
+        padding-top: 28px;
+
+        padding-left: 0;
+
+        border-left: none;
+      }
+
+
+      .descendants::before {
+
+        display: block;
+      }
+
+
+      .descendant-row.five {
+
+        grid-template-columns:
+          repeat(5, 1fr) !important;
+      }
+
+
+      .descendant-row.seven {
+
+        grid-template-columns:
+          repeat(7, 1fr) !important;
+      }
+
+
+      .descendant-row::before {
+
+        display: block;
+      }
+
+
+      .descendant-row > .person::before {
+
+        top: -15px;
+
+        left: 50%;
+
+        width: 1.5px;
+
+        height: 15px;
+
+        transform: translateX(-50%);
+      }
+
+
+      .main-grid {
+
+        grid-template-columns:
+          repeat(4, 1fr);
+      }
+
+
+      .children-main::before,
+      .family-unit::before {
+
+        display: block;
+      }
+
+
+      .family-unit {
+
+        border: none;
+
+        background: transparent;
+
+        padding-top: 16px;
+      }
+
+    }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- =========================================
+
+  <!-- =====================================================
        HEADER
-  ========================================== -->
+  ====================================================== -->
 
   <header class="topbar">
 
     <div class="topbar-inner">
+
 
       <div class="title-wrap">
 
@@ -892,8 +1792,10 @@
           ← Back to Home
         </a>
 
+
         <button
           class="btn"
+          type="button"
           onclick="window.print()"
         >
           Print / Save PDF
@@ -901,63 +1803,76 @@
 
       </div>
 
+
     </div>
 
   </header>
 
 
-  <!-- =========================================
-       MAIN PAGE
-  ========================================== -->
+  <!-- =====================================================
+       CONTENT
+  ====================================================== -->
 
   <main class="page">
 
+
     <p class="description">
+
       Paternal and maternal family lineage with parents,
       siblings, spouses, and the next generation.
+
     </p>
 
 
     <section class="tree-paper">
 
+
       <div class="tree">
 
 
-        <!-- =====================================
+        <!-- =================================================
              GENERATION I
-        ====================================== -->
+        ================================================== -->
 
         <div class="section-label">
+
           Generation I · Grandparents and Their Children
+
         </div>
 
 
         <div class="grandparents-grid">
 
 
-          <!-- ================================
-               PATERNAL LINE
-          ================================= -->
+          <!-- ===============================================
+               PATERNAL LINEAGE
+          ================================================ -->
 
           <section class="lineage-card">
 
+
             <div class="lineage-title">
+
               Paternal Lineage
+
             </div>
 
 
-            <!-- PATERNAL GRANDPARENTS -->
-
             <div class="couple">
+
 
               <div class="person paternal">
 
                 <div class="name">
+
                   Late Sk Abul Hossain
+
                 </div>
 
                 <div class="relation">
+
                   Paternal Grandfather
+
                 </div>
 
               </div>
@@ -969,21 +1884,25 @@
               <div class="person paternal">
 
                 <div class="name">
+
                   Late Mst Sohorbanu
+
                 </div>
 
                 <div class="relation">
+
                   Paternal Grandmother
+
                 </div>
 
               </div>
 
+
             </div>
 
 
-            <!-- THEIR CHILDREN -->
-
             <div class="descendants">
+
 
               <div class="descendant-row five">
 
@@ -1016,14 +1935,24 @@
 
                 <!-- FATHER -->
 
-                <div class="person paternal parent-highlight">
+                <div
+                  class="
+                    person
+                    paternal
+                    parent-highlight
+                  "
+                >
 
                   <div class="name">
+
                     Sk Shahidul Islam
+
                   </div>
 
                   <div class="relation">
+
                     Father
+
                   </div>
 
                 </div>
@@ -1057,34 +1986,42 @@
 
               </div>
 
+
             </div>
+
 
           </section>
 
 
-          <!-- ================================
-               MATERNAL LINE
-          ================================= -->
+          <!-- ===============================================
+               MATERNAL LINEAGE
+          ================================================ -->
 
           <section class="lineage-card">
 
+
             <div class="lineage-title">
+
               Maternal Lineage
+
             </div>
 
 
-            <!-- MATERNAL GRANDPARENTS -->
-
             <div class="couple">
+
 
               <div class="person maternal">
 
                 <div class="name">
+
                   Late Forman Ali Gazi
+
                 </div>
 
                 <div class="relation">
+
                   Maternal Grandfather
+
                 </div>
 
               </div>
@@ -1096,21 +2033,25 @@
               <div class="person maternal">
 
                 <div class="name">
+
                   Ayesha Khatun
+
                 </div>
 
                 <div class="relation">
+
                   Maternal Grandmother
+
                 </div>
 
               </div>
 
+
             </div>
 
 
-            <!-- THEIR CHILDREN -->
-
             <div class="descendants">
+
 
               <div class="descendant-row seven">
 
@@ -1169,14 +2110,24 @@
 
                 <!-- MOTHER -->
 
-                <div class="person maternal parent-highlight">
+                <div
+                  class="
+                    person
+                    maternal
+                    parent-highlight
+                  "
+                >
 
                   <div class="name">
+
                     Mst Tanzira Begum
+
                   </div>
 
                   <div class="relation">
+
                     Mother
+
                   </div>
 
                 </div>
@@ -1210,7 +2161,9 @@
 
               </div>
 
+
             </div>
+
 
           </section>
 
@@ -1218,11 +2171,14 @@
         </div>
 
 
-        <!-- =====================================
-             PATERNAL + MATERNAL MERGE
-        ====================================== -->
+        <!-- =================================================
+             DESKTOP FAMILY MERGE
+        ================================================== -->
 
-        <div class="merge-zone">
+        <div
+          class="merge-zone"
+          aria-hidden="true"
+        >
 
           <div class="left-v"></div>
 
@@ -1235,32 +2191,44 @@
         </div>
 
 
-        <!-- =====================================
+        <!-- =================================================
              GENERATION II
-        ====================================== -->
+        ================================================== -->
 
         <div class="section-label">
+
           Generation II · Parents
+
         </div>
 
 
         <div class="parents-block">
 
+
           <div class="parents-frame">
+
 
             <div class="couple">
 
 
-              <!-- FATHER -->
-
-              <div class="person paternal parent-highlight">
+              <div
+                class="
+                  person
+                  paternal
+                  parent-highlight
+                "
+              >
 
                 <div class="name">
+
                   Sk Shahidul Islam
+
                 </div>
 
                 <div class="relation">
+
                   Father
+
                 </div>
 
               </div>
@@ -1269,16 +2237,24 @@
               <div class="couple-line"></div>
 
 
-              <!-- MOTHER -->
-
-              <div class="person maternal parent-highlight">
+              <div
+                class="
+                  person
+                  maternal
+                  parent-highlight
+                "
+              >
 
                 <div class="name">
+
                   Mst Tanzira Begum
+
                 </div>
 
                 <div class="relation">
+
                   Mother
+
                 </div>
 
               </div>
@@ -1286,30 +2262,36 @@
 
             </div>
 
+
           </div>
+
 
         </div>
 
 
-        <!-- =====================================
+        <!-- =================================================
              GENERATION III
-        ====================================== -->
+        ================================================== -->
 
         <div class="section-label">
+
           Generation III · Children and Families
+
         </div>
 
 
         <div class="children-main">
 
+
           <div class="main-grid">
 
 
-            <!-- ================================
+            <!-- =============================================
                  SHARMIN FAMILY
-            ================================= -->
+            ============================================== -->
 
             <section class="family-unit">
+
 
               <div class="couple">
 
@@ -1317,11 +2299,15 @@
                 <div class="person sibling">
 
                   <div class="name">
+
                     Mst Sharmin Sultana
+
                   </div>
 
                   <div class="relation">
+
                     Elder Sister
+
                   </div>
 
                 </div>
@@ -1333,11 +2319,15 @@
                 <div class="person spouse">
 
                   <div class="name">
+
                     Md Humayun Kabir
+
                   </div>
 
                   <div class="relation">
+
                     Husband
+
                   </div>
 
                 </div>
@@ -1346,9 +2336,8 @@
               </div>
 
 
-              <!-- CHILDREN -->
-
               <div class="next-gen">
+
 
                 <div class="next-row two">
 
@@ -1356,11 +2345,15 @@
                   <div class="person child">
 
                     <div class="name">
+
                       Tasnia Kabir
+
                     </div>
 
                     <div class="relation">
+
                       Child
+
                     </div>
 
                   </div>
@@ -1369,11 +2362,15 @@
                   <div class="person child">
 
                     <div class="name">
+
                       Tousif
+
                     </div>
 
                     <div class="relation">
+
                       Child
+
                     </div>
 
                   </div>
@@ -1381,37 +2378,46 @@
 
                 </div>
 
+
               </div>
+
 
             </section>
 
 
-            <!-- ================================
-                 SK TANZIR MEHEDI
-            ================================= -->
+            <!-- =============================================
+                 TANZIR
+            ============================================== -->
 
             <section class="family-unit single">
+
 
               <div class="person self">
 
                 <div class="name">
+
                   Sk Tanzir Mehedi
+
                 </div>
 
                 <div class="relation">
+
                   Myself
+
                 </div>
 
               </div>
 
+
             </section>
 
 
-            <!-- ================================
+            <!-- =============================================
                  SONIA FAMILY
-            ================================= -->
+            ============================================== -->
 
             <section class="family-unit">
+
 
               <div class="couple">
 
@@ -1419,11 +2425,15 @@
                 <div class="person sibling">
 
                   <div class="name">
+
                     Mst Sonia Pervin
+
                   </div>
 
                   <div class="relation">
+
                     Little Sister
+
                   </div>
 
                 </div>
@@ -1435,11 +2445,15 @@
                 <div class="person spouse">
 
                   <div class="name">
+
                     Md Arif Hossain
+
                   </div>
 
                   <div class="relation">
+
                     Husband
+
                   </div>
 
                 </div>
@@ -1448,9 +2462,8 @@
               </div>
 
 
-              <!-- CHILD -->
-
               <div class="next-gen">
+
 
                 <div class="next-row one">
 
@@ -1458,11 +2471,15 @@
                   <div class="person child">
 
                     <div class="name">
+
                       Ashfia Jannat
+
                     </div>
 
                     <div class="relation">
+
                       Child
+
                     </div>
 
                   </div>
@@ -1470,40 +2487,49 @@
 
                 </div>
 
+
               </div>
+
 
             </section>
 
 
-            <!-- ================================
+            <!-- =============================================
                  TANVIR
-            ================================= -->
+            ============================================== -->
 
             <section class="family-unit single">
+
 
               <div class="person sibling">
 
                 <div class="name">
+
                   Sk Tanvir Mehedi
+
                 </div>
 
                 <div class="relation">
+
                   Youngest Brother
+
                 </div>
 
               </div>
+
 
             </section>
 
 
           </div>
 
+
         </div>
 
 
-        <!-- =====================================
+        <!-- =================================================
              LEGEND
-        ====================================== -->
+        ================================================== -->
 
         <div class="legend">
 
@@ -1512,7 +2538,7 @@
 
             <span
               class="swatch"
-              style="background: var(--paternal);"
+              style="background: var(--paternal)"
             ></span>
 
             Paternal family
@@ -1524,7 +2550,7 @@
 
             <span
               class="swatch"
-              style="background: var(--maternal);"
+              style="background: var(--maternal)"
             ></span>
 
             Maternal family
@@ -1536,7 +2562,7 @@
 
             <span
               class="swatch"
-              style="background: var(--self);"
+              style="background: var(--self)"
             ></span>
 
             Sk Tanzir Mehedi
@@ -1548,7 +2574,7 @@
 
             <span
               class="swatch"
-              style="background: var(--sibling);"
+              style="background: var(--sibling)"
             ></span>
 
             Siblings
@@ -1560,7 +2586,7 @@
 
             <span
               class="swatch"
-              style="background: var(--spouse);"
+              style="background: var(--spouse)"
             ></span>
 
             Spouses
@@ -1572,7 +2598,7 @@
 
             <span
               class="swatch"
-              style="background: var(--child);"
+              style="background: var(--child)"
             ></span>
 
             Children
@@ -1585,17 +2611,18 @@
 
       </div>
 
+
     </section>
+
 
   </main>
 
 
-  <!-- =========================================
-       FOOTER
-  ========================================== -->
-
   <footer>
-    © 2026 Sk Tanzir Mehedi. All rights reserved.
+
+    © 2026 Sk Tanzir Mehedi.
+    All rights reserved.
+
   </footer>
 
 
