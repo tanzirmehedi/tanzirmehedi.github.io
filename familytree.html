@@ -8,639 +8,495 @@
 
   <style>
     :root {
-      --bg: #f4f7fb;
-      --surface: #ffffff;
-      --surface-soft: #f8fafc;
-      --text: #172033;
-      --muted: #64748b;
-      --line: #cbd5e1;
-      --line-strong: #94a3b8;
-      --navy: #1e3a5f;
-      --navy-soft: #eaf0f7;
-      --gold: #a87522;
-      --gold-soft: #fbf6e9;
-      --green: #2f6f5e;
-      --green-soft: #eaf5f1;
-      --rose: #9c4f63;
-      --rose-soft: #f8edf0;
-      --blue: #3d6488;
-      --blue-soft: #edf4fa;
-      --shadow: 0 20px 55px rgba(15, 23, 42, 0.09);
+      --bg: #f7f8fa;
+      --paper: #ffffff;
+      --text: #18212f;
+      --muted: #6b7280;
+      --line: #7f8b99;
+      --border: #d8dee7;
+      --paternal: #eef3f8;
+      --maternal: #f8f3e8;
+      --self: #edf6f2;
+      --sibling: #f8f0f3;
+      --spouse: #eef4fa;
+      --child: #f4f6f8;
+      --shadow: 0 14px 35px rgba(15, 23, 42, 0.07);
     }
 
     * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family:
-        Inter, ui-sans-serif, system-ui, -apple-system,
-        BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.45;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
     }
 
-    a { color: inherit; }
-
-    .site-header {
-      background: rgba(255,255,255,.94);
-      border-bottom: 1px solid #e2e8f0;
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      backdrop-filter: blur(14px);
+    .topbar {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
     }
 
-    .header-inner {
-      max-width: 1480px;
+    .topbar-inner {
+      max-width: 1500px;
       margin: 0 auto;
       padding: 18px 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
     }
 
-    .brand h1 {
+    .title-wrap h1 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.55rem, 2.5vw, 2.15rem);
+      font-size: 2rem;
       font-weight: 600;
-      letter-spacing: -.02em;
-      color: #10233d;
+      color: #132238;
+      letter-spacing: -0.02em;
     }
 
-    .brand p {
+    .title-wrap p {
       margin: 4px 0 0;
       color: var(--muted);
-      font-size: .92rem;
+      font-size: .9rem;
     }
 
-    .header-actions {
+    .actions {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
     }
 
     .btn {
-      border: 1px solid #d8e0e9;
+      border: 1px solid #d7dde5;
       background: #fff;
       color: #334155;
       text-decoration: none;
       padding: 9px 13px;
-      border-radius: 9px;
-      font-weight: 650;
-      font-size: .88rem;
+      border-radius: 8px;
+      font-size: .86rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: .18s ease;
     }
 
     .btn:hover {
-      transform: translateY(-1px);
-      border-color: #b9c5d3;
-      box-shadow: 0 6px 16px rgba(15,23,42,.08);
+      background: #f8fafc;
     }
 
     .page {
-      max-width: 1480px;
-      margin: 30px auto 48px;
-      padding: 0 24px;
+      max-width: 1500px;
+      margin: 28px auto 48px;
+      padding: 0 22px;
     }
 
-    .hero {
-      background:
-        linear-gradient(135deg, rgba(30,58,95,.97), rgba(47,111,94,.92)),
-        #1e3a5f;
-      color: white;
-      border-radius: 22px;
-      padding: 34px 38px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 28px;
+    .intro {
+      text-align: center;
+      margin-bottom: 24px;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 310px;
-      height: 310px;
-      border: 1px solid rgba(255,255,255,.13);
-      border-radius: 50%;
-      right: -110px;
-      top: -160px;
-      box-shadow:
-        0 0 0 50px rgba(255,255,255,.025),
-        0 0 0 100px rgba(255,255,255,.02);
-    }
-
-    .eyebrow {
+    .intro .eyebrow {
+      font-size: .72rem;
       text-transform: uppercase;
       letter-spacing: .18em;
+      color: #64748b;
       font-weight: 700;
-      font-size: .74rem;
-      opacity: .75;
-      margin-bottom: 9px;
+      margin-bottom: 6px;
     }
 
-    .hero h2 {
+    .intro h2 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-size: 2.55rem;
       font-weight: 600;
-      letter-spacing: -.035em;
+      color: #17263a;
+      letter-spacing: -0.025em;
     }
 
-    .hero p {
-      margin: 12px 0 0;
-      max-width: 780px;
-      color: rgba(255,255,255,.8);
-      font-size: .98rem;
+    .intro p {
+      margin: 8px auto 0;
+      max-width: 720px;
+      color: #6b7280;
+      font-size: .93rem;
     }
 
-    .tree-shell {
-      background: var(--surface);
+    .tree-paper {
+      background: var(--paper);
       border: 1px solid #e2e8f0;
-      border-radius: 22px;
-      padding: 34px 30px 40px;
+      border-radius: 18px;
       box-shadow: var(--shadow);
+      padding: 36px 26px 42px;
       overflow-x: auto;
     }
 
-    .generation {
-      min-width: 1180px;
-      position: relative;
+    .tree {
+      min-width: 1240px;
+      margin: 0 auto;
     }
 
-    .generation-title {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-      color: var(--muted);
-      font-size: .78rem;
+    .section-label {
+      text-align: center;
+      font-size: .72rem;
       text-transform: uppercase;
-      letter-spacing: .16em;
-      font-weight: 800;
+      letter-spacing: .15em;
+      color: #7c8795;
+      font-weight: 700;
+      margin-bottom: 18px;
     }
-
-    .generation-title::before {
-      content: "";
-      width: 28px;
-      height: 1px;
-      background: var(--line-strong);
-    }
-
-    .lineages {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 34px;
-      align-items: start;
-    }
-
-    .lineage {
-      border: 1px solid #dde5ee;
-      border-radius: 18px;
-      padding: 22px;
-      background: linear-gradient(180deg, #fff, #fbfcfe);
-      position: relative;
-    }
-
-    .lineage.paternal { border-top: 4px solid var(--navy); }
-    .lineage.maternal { border-top: 4px solid var(--gold); }
-
-    .lineage-label {
-      display: inline-block;
-      margin-bottom: 16px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      font-size: .74rem;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      font-weight: 800;
-    }
-
-    .paternal .lineage-label {
-      background: var(--navy-soft);
-      color: var(--navy);
-    }
-
-    .maternal .lineage-label {
-      background: var(--gold-soft);
-      color: #7b5719;
-    }
-
-    .couple {
-      display: grid;
-      grid-template-columns: 1fr 38px 1fr;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .marriage-mark {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #8b98a8;
-      font-size: 1.05rem;
-      position: relative;
-    }
-
-    .marriage-mark::before,
-    .marriage-mark::after {
-      content: "";
-      width: 11px;
-      height: 1px;
-      background: var(--line-strong);
-      position: absolute;
-      top: 50%;
-    }
-
-    .marriage-mark::before { left: 0; }
-    .marriage-mark::after { right: 0; }
 
     .person {
+      border: 1px solid var(--border);
       background: #fff;
-      border: 1px solid #dbe3ec;
-      border-radius: 13px;
-      padding: 13px 14px;
+      border-radius: 10px;
+      padding: 11px 12px;
       text-align: center;
-      min-height: 74px;
+      min-height: 68px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      box-shadow: 0 5px 13px rgba(15,23,42,.035);
+      position: relative;
     }
 
     .person .name {
-      font-weight: 760;
-      font-size: .95rem;
-      color: #1d2939;
+      font-size: .9rem;
+      font-weight: 700;
+      color: #1f2937;
+      line-height: 1.25;
     }
 
     .person .relation {
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: .77rem;
-    }
-
-    .person.direct {
-      border-width: 2px;
-      box-shadow: 0 8px 18px rgba(15,23,42,.07);
-    }
-
-    .person.father {
-      background: var(--navy-soft);
-      border-color: #7c98b6;
-    }
-
-    .person.mother {
-      background: var(--gold-soft);
-      border-color: #c9a45c;
-    }
-
-    .person.self {
-      background: var(--green-soft);
-      border: 2px solid #5f9b8b;
-      transform: translateY(-3px);
-    }
-
-    .person.sibling {
-      background: var(--rose-soft);
-      border-color: #d8a2af;
-    }
-
-    .person.spouse {
-      background: var(--blue-soft);
-      border-color: #9bb6ce;
-    }
-
-    .person.child {
-      background: #f5f7fa;
-      border-color: #c9d2dc;
-    }
-
-    .late::before {
-      content: "Late";
-      display: inline-block;
-      margin-right: 5px;
-      color: #94a3b8;
-      font-weight: 600;
+      margin-top: 4px;
       font-size: .72rem;
-      vertical-align: 1px;
+      color: #6b7280;
+      line-height: 1.2;
     }
 
-    .branch {
+    .person.paternal { background: var(--paternal); }
+    .person.maternal { background: var(--maternal); }
+    .person.self {
+      background: var(--self);
+      border: 1.5px solid #8aa99d;
+    }
+    .person.sibling { background: var(--sibling); }
+    .person.spouse { background: var(--spouse); }
+    .person.child { background: var(--child); }
+
+    .couple {
+      display: grid;
+      grid-template-columns: 1fr 54px 1fr;
+      align-items: center;
+      gap: 0;
+    }
+
+    .couple-line {
+      height: 1.5px;
+      background: var(--line);
       position: relative;
-      padding-top: 30px;
-      margin-top: 2px;
     }
 
-    .branch::before {
+    .couple-line::after {
       content: "";
       position: absolute;
+      width: 7px;
+      height: 7px;
+      border: 1.5px solid var(--line);
+      background: #fff;
+      border-radius: 50%;
       left: 50%;
-      top: 0;
-      width: 1.5px;
-      height: 20px;
-      background: var(--line-strong);
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
 
-    .branch-row {
+    .grandparents-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .lineage-card {
+      padding: 20px 20px 22px;
+      border: 1px solid #e0e5eb;
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .lineage-title {
+      text-align: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #354458;
+      margin-bottom: 14px;
+    }
+
+    .descendants {
+      position: relative;
+      padding-top: 28px;
+    }
+
+    .descendants::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 1.5px;
+      height: 17px;
+      background: var(--line);
+      transform: translateX(-50%);
+    }
+
+    .descendant-row {
       display: grid;
       gap: 10px;
       position: relative;
       padding-top: 15px;
     }
 
-    .branch-row::before {
+    .descendant-row::before {
       content: "";
       position: absolute;
-      left: 8%;
-      right: 8%;
       top: 0;
+      left: 7%;
+      right: 7%;
       height: 1.5px;
-      background: var(--line-strong);
+      background: var(--line);
     }
 
-    .branch-row > .person {
-      position: relative;
-    }
-
-    .branch-row > .person::before {
+    .descendant-row > .person::before {
       content: "";
       position: absolute;
-      top: -16px;
+      top: -15px;
       left: 50%;
       width: 1.5px;
-      height: 16px;
-      background: var(--line-strong);
+      height: 15px;
+      background: var(--line);
+      transform: translateX(-50%);
     }
 
-    .paternal-children {
-      grid-template-columns: repeat(5, 1fr);
-    }
+    .five { grid-template-columns: repeat(5, 1fr); }
+    .seven { grid-template-columns: repeat(7, 1fr); }
 
-    .maternal-children {
-      grid-template-columns: repeat(7, 1fr);
-    }
-
-    .family-merge {
+    .merge-zone {
+      height: 110px;
       position: relative;
-      height: 95px;
-      min-width: 1180px;
     }
 
-    .family-merge .left-drop,
-    .family-merge .right-drop,
-    .family-merge .center-line {
+    .merge-zone .left-v,
+    .merge-zone .right-v,
+    .merge-zone .mid-v,
+    .merge-zone .h {
       position: absolute;
-      background: var(--line-strong);
+      background: var(--line);
     }
 
-    .family-merge .left-drop {
+    .merge-zone .left-v {
       width: 1.5px;
-      height: 44px;
+      height: 45px;
       left: 25%;
       top: 0;
     }
 
-    .family-merge .right-drop {
+    .merge-zone .right-v {
       width: 1.5px;
-      height: 44px;
+      height: 45px;
       right: 25%;
       top: 0;
     }
 
-    .family-merge .crossbar {
-      position: absolute;
+    .merge-zone .h {
+      height: 1.5px;
       left: 25%;
       right: 25%;
-      top: 43px;
-      height: 1.5px;
-      background: var(--line-strong);
+      top: 44px;
     }
 
-    .family-merge .center-line {
+    .merge-zone .mid-v {
       width: 1.5px;
-      height: 52px;
+      height: 66px;
       left: 50%;
-      top: 43px;
+      top: 44px;
+      transform: translateX(-50%);
     }
 
-    .parents-wrap {
-      width: 650px;
+    .parents-block {
+      width: 620px;
       margin: 0 auto;
-      padding-bottom: 24px;
       position: relative;
+      padding-bottom: 26px;
     }
 
-    .parents-wrap::after {
+    .parents-block::after {
       content: "";
-      width: 1.5px;
-      height: 24px;
-      background: var(--line-strong);
       position: absolute;
       left: 50%;
       bottom: 0;
+      width: 1.5px;
+      height: 26px;
+      background: var(--line);
+      transform: translateX(-50%);
     }
 
-    .parents-card {
-      background: #fff;
-      border: 1px solid #dbe3ec;
-      border-radius: 18px;
-      padding: 17px;
-      box-shadow: 0 10px 24px rgba(15,23,42,.06);
+    .parents-frame {
+      border: 1px solid #e0e5eb;
+      border-radius: 14px;
+      padding: 16px;
+      background: #fbfcfd;
     }
 
-    .parents-label {
-      text-align: center;
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .15em;
-      color: var(--muted);
-      font-weight: 800;
-      margin-bottom: 12px;
+    .children-main {
+      position: relative;
+      padding-top: 18px;
     }
 
-    .siblings-zone {
+    .children-main::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 11%;
+      right: 11%;
+      height: 1.5px;
+      background: var(--line);
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .family-unit {
+      position: relative;
+      padding-top: 16px;
+    }
+
+    .family-unit::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 1.5px;
+      height: 16px;
+      background: var(--line);
+      transform: translateX(-50%);
+    }
+
+    .family-unit .couple {
+      grid-template-columns: 1fr 40px 1fr;
+    }
+
+    .family-unit.single {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    .family-unit.single .person {
+      min-height: 74px;
+    }
+
+    .next-gen {
       position: relative;
       padding-top: 26px;
     }
 
-    .siblings-zone::before {
+    .next-gen::before {
       content: "";
       position: absolute;
+      left: 50%;
       top: 0;
-      left: 12.5%;
-      right: 12.5%;
-      height: 1.5px;
-      background: var(--line-strong);
-    }
-
-    .siblings-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-
-    .sibling-family {
-      position: relative;
-      padding-top: 16px;
-      text-align: center;
-    }
-
-    .sibling-family::before {
-      content: "";
       width: 1.5px;
       height: 17px;
-      background: var(--line-strong);
-      position: absolute;
-      left: 50%;
-      top: -1px;
+      background: var(--line);
+      transform: translateX(-50%);
     }
 
-    .spouse-pair {
-      display: grid;
-      grid-template-columns: 1fr 30px 1fr;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .compact-mark {
-      position: relative;
-      color: #94a3b8;
-      font-size: .9rem;
-    }
-
-    .compact-mark::before,
-    .compact-mark::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      width: 8px;
-      height: 1px;
-      background: var(--line-strong);
-    }
-
-    .compact-mark::before { left: 0; }
-    .compact-mark::after { right: 0; }
-
-    .children-wrap {
-      position: relative;
-      padding-top: 28px;
-      margin-top: 3px;
-    }
-
-    .children-wrap::before {
-      content: "";
-      width: 1.5px;
-      height: 18px;
-      position: absolute;
-      background: var(--line-strong);
-      top: 0;
-      left: 50%;
-    }
-
-    .children {
+    .next-row {
       display: grid;
       gap: 10px;
       position: relative;
-      padding-top: 12px;
+      padding-top: 13px;
     }
 
-    .children.two { grid-template-columns: 1fr 1fr; }
-    .children.one { grid-template-columns: 1fr; }
+    .next-row.two {
+      grid-template-columns: 1fr 1fr;
+    }
 
-    .children::before {
+    .next-row.one {
+      grid-template-columns: 1fr;
+      padding-left: 20%;
+      padding-right: 20%;
+    }
+
+    .next-row.two::before {
       content: "";
       position: absolute;
-      top: 0;
       left: 25%;
       right: 25%;
-      height: 1px;
-      background: var(--line-strong);
+      top: 0;
+      height: 1.5px;
+      background: var(--line);
     }
 
-    .children.one::before { display: none; }
-
-    .children .person {
-      position: relative;
-      min-height: 64px;
-    }
-
-    .children .person::before {
+    .next-row > .person::before {
       content: "";
       position: absolute;
-      width: 1px;
-      height: 13px;
-      background: var(--line-strong);
       top: -13px;
       left: 50%;
-    }
-
-    .empty-note {
-      margin-top: 24px;
-      color: #94a3b8;
-      font-size: .78rem;
-      font-style: italic;
+      width: 1.5px;
+      height: 13px;
+      background: var(--line);
+      transform: translateX(-50%);
     }
 
     .legend {
+      margin-top: 30px;
       display: flex;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 14px 18px;
-      margin-top: 28px;
-      padding: 16px 18px;
-      border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      background: #fafcff;
-      color: #64748b;
-      font-size: .79rem;
+      gap: 15px 22px;
+      color: #6b7280;
+      font-size: .76rem;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 18px;
     }
 
-    .legend span {
+    .legend-item {
       display: inline-flex;
-      gap: 7px;
       align-items: center;
+      gap: 7px;
     }
 
     .swatch {
       width: 11px;
       height: 11px;
-      border-radius: 3px;
-      border: 1px solid rgba(15,23,42,.12);
+      border-radius: 2px;
+      border: 1px solid #cbd5e1;
     }
 
     footer {
       text-align: center;
-      color: #94a3b8;
-      padding: 26px 20px 34px;
-      font-size: .85rem;
+      color: #9aa3af;
+      padding: 26px 20px 36px;
+      font-size: .82rem;
     }
 
-    @media (max-width: 850px) {
-      .header-inner {
-        align-items: flex-start;
+    @media (max-width: 800px) {
+      .topbar-inner {
         flex-direction: column;
-        padding: 15px 18px;
+        align-items: flex-start;
+        padding: 16px 18px;
       }
 
       .page {
-        padding: 0 12px;
-        margin-top: 16px;
+        padding: 0 10px;
+        margin-top: 18px;
       }
 
-      .hero {
-        padding: 27px 24px;
-        border-radius: 18px;
+      .intro h2 {
+        font-size: 2rem;
       }
 
-      .tree-shell {
-        padding: 24px 16px 30px;
-        border-radius: 17px;
+      .tree-paper {
+        padding: 26px 14px 34px;
       }
     }
 
@@ -654,47 +510,39 @@
         background: #fff;
       }
 
-      .site-header,
-      .hero p,
-      .header-actions,
-      footer {
+      .topbar,
+      footer,
+      .actions {
         display: none !important;
       }
 
       .page {
-        max-width: none;
         margin: 0;
         padding: 0;
+        max-width: none;
       }
 
-      .hero {
-        box-shadow: none;
+      .intro {
         margin-bottom: 12px;
-        border-radius: 0;
-        padding: 12px 18px;
-        background: #fff;
-        color: #111827;
-        border-bottom: 1px solid #d1d5db;
       }
 
-      .hero .eyebrow {
-        color: #64748b;
+      .intro p,
+      .intro .eyebrow {
+        display: none;
       }
 
-      .hero h2 {
-        color: #111827;
-        font-size: 24pt;
+      .intro h2 {
+        font-size: 22pt;
       }
 
-      .tree-shell {
+      .tree-paper {
         box-shadow: none;
         border: 0;
-        padding: 10px;
+        padding: 0;
         overflow: visible;
       }
 
-      .generation,
-      .family-merge {
+      .tree {
         min-width: 0;
       }
 
@@ -707,77 +555,77 @@
 
 <body>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="brand">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="title-wrap">
         <h1>Family Tree of Sk Tanzir Mehedi</h1>
-        <p>Family lineage and immediate family overview</p>
+        <p>Formal genealogical overview</p>
       </div>
 
-      <div class="header-actions">
-        <a class="btn" href="https://tanzirmehedi.github.io">← Home</a>
+      <div class="actions">
+        <a class="btn" href="https://tanzirmehedi.github.io">← Back to Home</a>
         <button class="btn" onclick="window.print()">Print / Save PDF</button>
       </div>
     </div>
   </header>
 
   <main class="page">
-    <section class="hero">
-      <div class="eyebrow">Family Heritage</div>
+    <div class="intro">
+      <div class="eyebrow">Family Genealogy</div>
       <h2>Sk Tanzir Mehedi Family Tree</h2>
       <p>
-        A structured view of the paternal and maternal lineages, parents,
-        siblings, spouses, and the next generation.
+        Paternal and maternal lineage presented using conventional family-tree connectors,
+        without directional arrows.
       </p>
-    </section>
+    </div>
 
-    <section class="tree-shell">
+    <section class="tree-paper">
+      <div class="tree">
 
-      <div class="generation">
-        <div class="generation-title">Generation I · Grandparents & Their Children</div>
+        <div class="section-label">Generation I · Grandparents and Their Children</div>
 
-        <div class="lineages">
+        <div class="grandparents-grid">
 
-          <section class="lineage paternal">
-            <div class="lineage-label">Paternal Lineage</div>
+          <section class="lineage-card">
+            <div class="lineage-title">Paternal Lineage</div>
 
             <div class="couple">
-              <div class="person">
-                <div class="name"><span class="late"></span>Sk Abul Hossain</div>
+              <div class="person paternal">
+                <div class="name">Late Sk Abul Hossain</div>
                 <div class="relation">Paternal Grandfather</div>
               </div>
 
-              <div class="marriage-mark">◆</div>
+              <div class="couple-line"></div>
 
-              <div class="person">
-                <div class="name"><span class="late"></span>Mst Sohorbanu</div>
+              <div class="person paternal">
+                <div class="name">Late Mst Sohorbanu</div>
                 <div class="relation">Paternal Grandmother</div>
               </div>
             </div>
 
-            <div class="branch">
-              <div class="branch-row paternal-children">
-                <div class="person">
+            <div class="descendants">
+              <div class="descendant-row five">
+                <div class="person paternal">
                   <div class="name">Mst Roushon Ara Begum</div>
                   <div class="relation">Eldest Paternal Aunt</div>
                 </div>
 
-                <div class="person">
+                <div class="person paternal">
                   <div class="name">Mst Rehana Amin</div>
                   <div class="relation">Second Eldest Paternal Aunt</div>
                 </div>
 
-                <div class="person direct father">
+                <div class="person paternal">
                   <div class="name">Sk Shahidul Islam</div>
                   <div class="relation">Father</div>
                 </div>
 
-                <div class="person">
+                <div class="person paternal">
                   <div class="name">Mst Rofia Pervin</div>
                   <div class="relation">Third Eldest Paternal Aunt</div>
                 </div>
 
-                <div class="person">
+                <div class="person paternal">
                   <div class="name">Mst Ruma Pervin</div>
                   <div class="relation">Youngest Paternal Aunt</div>
                 </div>
@@ -785,56 +633,56 @@
             </div>
           </section>
 
-          <section class="lineage maternal">
-            <div class="lineage-label">Maternal Lineage</div>
+          <section class="lineage-card">
+            <div class="lineage-title">Maternal Lineage</div>
 
             <div class="couple">
-              <div class="person">
-                <div class="name"><span class="late"></span>Forman Ali Gazi</div>
+              <div class="person maternal">
+                <div class="name">Late Forman Ali Gazi</div>
                 <div class="relation">Maternal Grandfather</div>
               </div>
 
-              <div class="marriage-mark">◆</div>
+              <div class="couple-line"></div>
 
-              <div class="person">
+              <div class="person maternal">
                 <div class="name">Ayesha Khatun</div>
                 <div class="relation">Maternal Grandmother</div>
               </div>
             </div>
 
-            <div class="branch">
-              <div class="branch-row maternal-children">
-                <div class="person">
+            <div class="descendants">
+              <div class="descendant-row seven">
+                <div class="person maternal">
                   <div class="name">Md Surat Ali</div>
                   <div class="relation">Eldest Maternal Uncle</div>
                 </div>
 
-                <div class="person">
+                <div class="person maternal">
                   <div class="name">Mst Fozila Khatun</div>
                   <div class="relation">Eldest Maternal Aunt</div>
                 </div>
 
-                <div class="person">
+                <div class="person maternal">
                   <div class="name">Mst Anawara Khanom</div>
                   <div class="relation">Second Eldest Maternal Aunt</div>
                 </div>
 
-                <div class="person">
+                <div class="person maternal">
                   <div class="name">Md Azizur Rahman</div>
                   <div class="relation">Second Eldest Maternal Uncle</div>
                 </div>
 
-                <div class="person direct mother">
+                <div class="person maternal">
                   <div class="name">Mst Tanzira Begum</div>
                   <div class="relation">Mother</div>
                 </div>
 
-                <div class="person">
+                <div class="person maternal">
                   <div class="name">Md. Shahidul Islam</div>
                   <div class="relation">Third Eldest Maternal Uncle</div>
                 </div>
 
-                <div class="person">
+                <div class="person maternal">
                   <div class="name">Md Mozahidul Islam</div>
                   <div class="relation">Youngest Maternal Uncle</div>
                 </div>
@@ -843,31 +691,27 @@
           </section>
 
         </div>
-      </div>
 
-      <div class="family-merge" aria-hidden="true">
-        <span class="left-drop"></span>
-        <span class="right-drop"></span>
-        <span class="crossbar"></span>
-        <span class="center-line"></span>
-      </div>
+        <div class="merge-zone" aria-hidden="true">
+          <div class="left-v"></div>
+          <div class="right-v"></div>
+          <div class="h"></div>
+          <div class="mid-v"></div>
+        </div>
 
-      <div class="generation">
-        <div class="generation-title">Generation II · Parents</div>
+        <div class="section-label">Generation II · Parents</div>
 
-        <div class="parents-wrap">
-          <div class="parents-card">
-            <div class="parents-label">Parents</div>
-
+        <div class="parents-block">
+          <div class="parents-frame">
             <div class="couple">
-              <div class="person direct father">
+              <div class="person paternal">
                 <div class="name">Sk Shahidul Islam</div>
                 <div class="relation">Father</div>
               </div>
 
-              <div class="marriage-mark">◆</div>
+              <div class="couple-line"></div>
 
-              <div class="person direct mother">
+              <div class="person maternal">
                 <div class="name">Mst Tanzira Begum</div>
                 <div class="relation">Mother</div>
               </div>
@@ -875,19 +719,19 @@
           </div>
         </div>
 
-        <div class="generation-title">Generation III · Children & Families</div>
+        <div class="section-label">Generation III · Children and Families</div>
 
-        <div class="siblings-zone">
-          <div class="siblings-grid">
+        <div class="children-main">
+          <div class="main-grid">
 
-            <section class="sibling-family">
-              <div class="spouse-pair">
+            <section class="family-unit">
+              <div class="couple">
                 <div class="person sibling">
                   <div class="name">Mst Sharmin Sultana</div>
                   <div class="relation">Elder Sister</div>
                 </div>
 
-                <div class="compact-mark">◆</div>
+                <div class="couple-line"></div>
 
                 <div class="person spouse">
                   <div class="name">Md Humayun Kabir</div>
@@ -895,8 +739,8 @@
                 </div>
               </div>
 
-              <div class="children-wrap">
-                <div class="children two">
+              <div class="next-gen">
+                <div class="next-row two">
                   <div class="person child">
                     <div class="name">Tasnia Kabir</div>
                     <div class="relation">Child</div>
@@ -910,21 +754,21 @@
               </div>
             </section>
 
-            <section class="sibling-family">
+            <section class="family-unit single">
               <div class="person self">
                 <div class="name">Sk Tanzir Mehedi</div>
                 <div class="relation">Myself</div>
               </div>
             </section>
 
-            <section class="sibling-family">
-              <div class="spouse-pair">
+            <section class="family-unit">
+              <div class="couple">
                 <div class="person sibling">
                   <div class="name">Mst Sonia Pervin</div>
                   <div class="relation">Little Sister</div>
                 </div>
 
-                <div class="compact-mark">◆</div>
+                <div class="couple-line"></div>
 
                 <div class="person spouse">
                   <div class="name">Md Arif Hossain</div>
@@ -932,8 +776,8 @@
                 </div>
               </div>
 
-              <div class="children-wrap">
-                <div class="children one">
+              <div class="next-gen">
+                <div class="next-row one">
                   <div class="person child">
                     <div class="name">Ashfia Jannat</div>
                     <div class="relation">Child</div>
@@ -942,7 +786,7 @@
               </div>
             </section>
 
-            <section class="sibling-family">
+            <section class="family-unit single">
               <div class="person sibling">
                 <div class="name">Sk Tanvir Mehedi</div>
                 <div class="relation">Youngest Brother</div>
@@ -953,15 +797,15 @@
         </div>
 
         <div class="legend">
-          <span><i class="swatch" style="background:var(--navy-soft)"></i> Paternal / Father</span>
-          <span><i class="swatch" style="background:var(--gold-soft)"></i> Maternal / Mother</span>
-          <span><i class="swatch" style="background:var(--green-soft)"></i> Sk Tanzir Mehedi</span>
-          <span><i class="swatch" style="background:var(--rose-soft)"></i> Siblings</span>
-          <span><i class="swatch" style="background:var(--blue-soft)"></i> Spouses</span>
-          <span><i class="swatch" style="background:#f5f7fa"></i> Children</span>
+          <span class="legend-item"><span class="swatch" style="background:var(--paternal)"></span>Paternal family</span>
+          <span class="legend-item"><span class="swatch" style="background:var(--maternal)"></span>Maternal family</span>
+          <span class="legend-item"><span class="swatch" style="background:var(--self)"></span>Sk Tanzir Mehedi</span>
+          <span class="legend-item"><span class="swatch" style="background:var(--sibling)"></span>Siblings</span>
+          <span class="legend-item"><span class="swatch" style="background:var(--spouse)"></span>Spouses</span>
+          <span class="legend-item"><span class="swatch" style="background:var(--child)"></span>Children</span>
         </div>
-      </div>
 
+      </div>
     </section>
   </main>
 
