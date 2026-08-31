@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Family Tree of Sk Tanzir Mehedi" />
+
   <title>Family Tree of Sk Tanzir Mehedi</title>
 
   <style>
@@ -14,16 +15,20 @@
       --muted: #6b7280;
       --line: #7f8b99;
       --border: #d8dee7;
+
       --paternal: #eef3f8;
       --maternal: #f8f3e8;
       --self: #edf6f2;
       --sibling: #f8f0f3;
       --spouse: #eef4fa;
       --child: #f4f6f8;
+
       --shadow: 0 14px 35px rgba(15, 23, 42, 0.07);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -32,34 +37,43 @@
       font-family: Inter, "Segoe UI", Arial, sans-serif;
     }
 
+    /* =========================================
+       HEADER
+    ========================================= */
+
     .topbar {
-      background: #fff;
+      background: #ffffff;
       border-bottom: 1px solid #e5e7eb;
     }
 
     .topbar-inner {
       max-width: 1500px;
       margin: 0 auto;
-      padding: 18px 28px;
+      padding: 20px 28px;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 18px;
+
+      gap: 20px;
     }
 
     .title-wrap h1 {
       margin: 0;
+
       font-family: Georgia, "Times New Roman", serif;
       font-size: 2rem;
       font-weight: 600;
+
       color: #132238;
       letter-spacing: -0.02em;
     }
 
     .title-wrap p {
-      margin: 4px 0 0;
+      margin: 5px 0 0;
+
       color: var(--muted);
-      font-size: .9rem;
+      font-size: 0.9rem;
     }
 
     .actions {
@@ -70,13 +84,18 @@
 
     .btn {
       border: 1px solid #d7dde5;
-      background: #fff;
+      background: #ffffff;
+
       color: #334155;
+
       text-decoration: none;
+
       padding: 9px 13px;
       border-radius: 8px;
-      font-size: .86rem;
+
+      font-size: 0.86rem;
       font-weight: 600;
+
       cursor: pointer;
     }
 
@@ -84,200 +103,362 @@
       background: #f8fafc;
     }
 
+    /* =========================================
+       PAGE
+    ========================================= */
+
     .page {
       max-width: 1500px;
+
       margin: 28px auto 48px;
+
       padding: 0 22px;
     }
 
-    .intro {
+    .description {
       text-align: center;
-      margin-bottom: 24px;
-    }
 
-    .intro .eyebrow {
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      color: #64748b;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
+      max-width: 760px;
 
-    .intro h2 {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 2.55rem;
-      font-weight: 600;
-      color: #17263a;
-      letter-spacing: -0.025em;
-    }
+      margin: 0 auto 24px;
 
-    .intro p {
-      margin: 8px auto 0;
-      max-width: 720px;
       color: #6b7280;
-      font-size: .93rem;
+
+      font-size: 0.94rem;
+      line-height: 1.6;
     }
+
+    /* =========================================
+       FAMILY TREE CONTAINER
+    ========================================= */
 
     .tree-paper {
       background: var(--paper);
+
       border: 1px solid #e2e8f0;
+
       border-radius: 18px;
+
       box-shadow: var(--shadow);
+
       padding: 36px 26px 42px;
+
       overflow-x: auto;
     }
 
     .tree {
       min-width: 1240px;
+
       margin: 0 auto;
     }
 
     .section-label {
       text-align: center;
-      font-size: .72rem;
+
+      font-size: 0.72rem;
+
       text-transform: uppercase;
-      letter-spacing: .15em;
+
+      letter-spacing: 0.15em;
+
       color: #7c8795;
+
       font-weight: 700;
+
       margin-bottom: 18px;
     }
 
+    /* =========================================
+       PERSON CARDS
+    ========================================= */
+
     .person {
       border: 1px solid var(--border);
-      background: #fff;
+
+      background: #ffffff;
+
       border-radius: 10px;
+
       padding: 11px 12px;
+
       text-align: center;
+
       min-height: 68px;
+
       display: flex;
+
       flex-direction: column;
+
       justify-content: center;
+
       position: relative;
     }
 
     .person .name {
-      font-size: .9rem;
+      font-size: 0.9rem;
+
       font-weight: 700;
+
       color: #1f2937;
+
       line-height: 1.25;
     }
 
     .person .relation {
       margin-top: 4px;
-      font-size: .72rem;
+
+      font-size: 0.72rem;
+
       color: #6b7280;
+
       line-height: 1.2;
     }
 
-    .person.paternal { background: var(--paternal); }
-    .person.maternal { background: var(--maternal); }
+    /* =========================================
+       FAMILY COLOURS
+    ========================================= */
+
+    .person.paternal {
+      background: var(--paternal);
+    }
+
+    .person.maternal {
+      background: var(--maternal);
+    }
+
+    .person.sibling {
+      background: var(--sibling);
+    }
+
+    .person.spouse {
+      background: var(--spouse);
+    }
+
+    .person.child {
+      background: var(--child);
+    }
+
+    /* =========================================
+       FATHER AND MOTHER HIGHLIGHT
+    ========================================= */
+
+    .person.parent-highlight {
+      border: 2px solid #3f5f7f;
+
+      box-shadow:
+        0 0 0 3px rgba(63, 95, 127, 0.10),
+        0 8px 20px rgba(15, 23, 42, 0.10);
+
+      transform: translateY(-2px);
+    }
+
+    .person.parent-highlight.maternal {
+      border-color: #a87522;
+
+      box-shadow:
+        0 0 0 3px rgba(168, 117, 34, 0.10),
+        0 8px 20px rgba(15, 23, 42, 0.10);
+    }
+
+    .person.parent-highlight .name {
+      font-size: 0.95rem;
+
+      font-weight: 800;
+    }
+
+    .person.parent-highlight .relation {
+      font-weight: 700;
+
+      color: #475569;
+
+      letter-spacing: 0.02em;
+    }
+
+    /* =========================================
+       SK TANZIR MEHEDI HIGHLIGHT
+    ========================================= */
+
     .person.self {
       background: var(--self);
-      border: 1.5px solid #8aa99d;
+
+      border: 2px solid #5d8e7f;
+
+      box-shadow:
+        0 0 0 3px rgba(93, 142, 127, 0.09),
+        0 8px 18px rgba(15, 23, 42, 0.08);
     }
-    .person.sibling { background: var(--sibling); }
-    .person.spouse { background: var(--spouse); }
-    .person.child { background: var(--child); }
+
+    .person.self .name {
+      font-size: 0.98rem;
+
+      font-weight: 800;
+    }
+
+    /* =========================================
+       COUPLE CONNECTION
+    ========================================= */
 
     .couple {
       display: grid;
+
       grid-template-columns: 1fr 54px 1fr;
+
       align-items: center;
+
       gap: 0;
     }
 
     .couple-line {
       height: 1.5px;
+
       background: var(--line);
+
       position: relative;
     }
 
     .couple-line::after {
       content: "";
+
       position: absolute;
+
       width: 7px;
       height: 7px;
+
       border: 1.5px solid var(--line);
-      background: #fff;
+
+      background: #ffffff;
+
       border-radius: 50%;
+
       left: 50%;
       top: 50%;
+
       transform: translate(-50%, -50%);
     }
 
+    /* =========================================
+       GRANDPARENT LAYOUT
+    ========================================= */
+
     .grandparents-grid {
       display: grid;
+
       grid-template-columns: 1fr 1fr;
+
       gap: 60px;
     }
 
     .lineage-card {
       padding: 20px 20px 22px;
+
       border: 1px solid #e0e5eb;
+
       border-radius: 14px;
-      background: #fff;
+
+      background: #ffffff;
     }
 
     .lineage-title {
       text-align: center;
+
       font-family: Georgia, "Times New Roman", serif;
+
       font-size: 1.05rem;
+
       font-weight: 600;
+
       color: #354458;
+
       margin-bottom: 14px;
     }
 
+    /* =========================================
+       DESCENDANT CONNECTIONS
+    ========================================= */
+
     .descendants {
       position: relative;
+
       padding-top: 28px;
     }
 
     .descendants::before {
       content: "";
+
       position: absolute;
+
       top: 0;
+
       left: 50%;
+
       width: 1.5px;
+
       height: 17px;
+
       background: var(--line);
+
       transform: translateX(-50%);
     }
 
     .descendant-row {
       display: grid;
+
       gap: 10px;
+
       position: relative;
+
       padding-top: 15px;
     }
 
     .descendant-row::before {
       content: "";
+
       position: absolute;
+
       top: 0;
+
       left: 7%;
+
       right: 7%;
+
       height: 1.5px;
+
       background: var(--line);
     }
 
     .descendant-row > .person::before {
       content: "";
+
       position: absolute;
+
       top: -15px;
+
       left: 50%;
+
       width: 1.5px;
+
       height: 15px;
+
       background: var(--line);
+
       transform: translateX(-50%);
     }
 
-    .five { grid-template-columns: repeat(5, 1fr); }
-    .seven { grid-template-columns: repeat(7, 1fr); }
+    .five {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .seven {
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    /* =========================================
+       FAMILY MERGE
+    ========================================= */
 
     .merge-zone {
       height: 110px;
+
       position: relative;
     }
 
@@ -286,97 +467,152 @@
     .merge-zone .mid-v,
     .merge-zone .h {
       position: absolute;
+
       background: var(--line);
     }
 
     .merge-zone .left-v {
       width: 1.5px;
+
       height: 45px;
+
       left: 25%;
+
       top: 0;
     }
 
     .merge-zone .right-v {
       width: 1.5px;
+
       height: 45px;
+
       right: 25%;
+
       top: 0;
     }
 
     .merge-zone .h {
       height: 1.5px;
+
       left: 25%;
+
       right: 25%;
+
       top: 44px;
     }
 
     .merge-zone .mid-v {
       width: 1.5px;
+
       height: 66px;
+
       left: 50%;
+
       top: 44px;
+
       transform: translateX(-50%);
     }
 
+    /* =========================================
+       PARENTS
+    ========================================= */
+
     .parents-block {
       width: 620px;
+
       margin: 0 auto;
+
       position: relative;
+
       padding-bottom: 26px;
     }
 
     .parents-block::after {
       content: "";
+
       position: absolute;
+
       left: 50%;
+
       bottom: 0;
+
       width: 1.5px;
+
       height: 26px;
+
       background: var(--line);
+
       transform: translateX(-50%);
     }
 
     .parents-frame {
-      border: 1px solid #e0e5eb;
+      border: 1px solid #d8e0e8;
+
       border-radius: 14px;
-      padding: 16px;
+
+      padding: 18px;
+
       background: #fbfcfd;
+
+      box-shadow:
+        0 8px 22px rgba(15, 23, 42, 0.05);
     }
+
+    /* =========================================
+       CHILDREN OF PARENTS
+    ========================================= */
 
     .children-main {
       position: relative;
+
       padding-top: 18px;
     }
 
     .children-main::before {
       content: "";
+
       position: absolute;
+
       top: 0;
+
       left: 11%;
+
       right: 11%;
+
       height: 1.5px;
+
       background: var(--line);
     }
 
     .main-grid {
       display: grid;
+
       grid-template-columns: repeat(4, 1fr);
+
       gap: 22px;
     }
 
     .family-unit {
       position: relative;
+
       padding-top: 16px;
     }
 
     .family-unit::before {
       content: "";
+
       position: absolute;
+
       top: 0;
+
       left: 50%;
+
       width: 1.5px;
+
       height: 16px;
+
       background: var(--line);
+
       transform: translateX(-50%);
     }
 
@@ -386,6 +622,7 @@
 
     .family-unit.single {
       padding-left: 30px;
+
       padding-right: 30px;
     }
 
@@ -393,26 +630,41 @@
       min-height: 74px;
     }
 
+    /* =========================================
+       NEXT GENERATION
+    ========================================= */
+
     .next-gen {
       position: relative;
+
       padding-top: 26px;
     }
 
     .next-gen::before {
       content: "";
+
       position: absolute;
+
       left: 50%;
+
       top: 0;
+
       width: 1.5px;
+
       height: 17px;
+
       background: var(--line);
+
       transform: translateX(-50%);
     }
 
     .next-row {
       display: grid;
+
       gap: 10px;
+
       position: relative;
+
       padding-top: 13px;
     }
 
@@ -422,77 +674,120 @@
 
     .next-row.one {
       grid-template-columns: 1fr;
+
       padding-left: 20%;
+
       padding-right: 20%;
     }
 
     .next-row.two::before {
       content: "";
+
       position: absolute;
+
       left: 25%;
+
       right: 25%;
+
       top: 0;
+
       height: 1.5px;
+
       background: var(--line);
     }
 
     .next-row > .person::before {
       content: "";
+
       position: absolute;
+
       top: -13px;
+
       left: 50%;
+
       width: 1.5px;
+
       height: 13px;
+
       background: var(--line);
+
       transform: translateX(-50%);
     }
 
+    /* =========================================
+       LEGEND
+    ========================================= */
+
     .legend {
       margin-top: 30px;
+
       display: flex;
+
       justify-content: center;
+
       flex-wrap: wrap;
+
       gap: 15px 22px;
+
       color: #6b7280;
-      font-size: .76rem;
+
+      font-size: 0.76rem;
+
       border-top: 1px solid #e5e7eb;
+
       padding-top: 18px;
     }
 
     .legend-item {
       display: inline-flex;
+
       align-items: center;
+
       gap: 7px;
     }
 
     .swatch {
       width: 11px;
+
       height: 11px;
+
       border-radius: 2px;
+
       border: 1px solid #cbd5e1;
     }
 
+    /* =========================================
+       FOOTER
+    ========================================= */
+
     footer {
       text-align: center;
+
       color: #9aa3af;
+
       padding: 26px 20px 36px;
-      font-size: .82rem;
+
+      font-size: 0.82rem;
     }
 
+    /* =========================================
+       MOBILE
+    ========================================= */
+
     @media (max-width: 800px) {
+
       .topbar-inner {
         flex-direction: column;
+
         align-items: flex-start;
+
         padding: 16px 18px;
       }
 
       .page {
         padding: 0 10px;
-        margin-top: 18px;
-      }
 
-      .intro h2 {
-        font-size: 2rem;
+        margin-top: 18px;
       }
 
       .tree-paper {
@@ -500,45 +795,57 @@
       }
     }
 
+    /* =========================================
+       PRINT
+    ========================================= */
+
     @media print {
+
       @page {
         size: A3 landscape;
         margin: 10mm;
       }
 
       body {
-        background: #fff;
+        background: #ffffff;
       }
 
-      .topbar,
-      footer,
-      .actions {
+      .topbar .actions,
+      footer {
         display: none !important;
+      }
+
+      .topbar {
+        border-bottom: none;
+      }
+
+      .topbar-inner {
+        justify-content: center;
+
+        text-align: center;
+
+        padding: 8px 0 18px;
       }
 
       .page {
         margin: 0;
+
         padding: 0;
+
         max-width: none;
       }
 
-      .intro {
+      .description {
         margin-bottom: 12px;
-      }
-
-      .intro p,
-      .intro .eyebrow {
-        display: none;
-      }
-
-      .intro h2 {
-        font-size: 22pt;
       }
 
       .tree-paper {
         box-shadow: none;
-        border: 0;
+
+        border: none;
+
         padding: 0;
+
         overflow: visible;
       }
 
@@ -555,263 +862,742 @@
 
 <body>
 
+  <!-- =========================================
+       HEADER
+  ========================================== -->
+
   <header class="topbar">
+
     <div class="topbar-inner">
+
       <div class="title-wrap">
-        <h1>Family Tree of Sk Tanzir Mehedi</h1>
-        <p>Formal genealogical overview</p>
+
+        <h1>
+          Family Tree of Sk Tanzir Mehedi
+        </h1>
+
+        <p>
+          Formal genealogical overview
+        </p>
+
       </div>
+
 
       <div class="actions">
-        <a class="btn" href="https://tanzirmehedi.github.io">← Back to Home</a>
-        <button class="btn" onclick="window.print()">Print / Save PDF</button>
+
+        <a
+          class="btn"
+          href="https://tanzirmehedi.github.io"
+        >
+          ← Back to Home
+        </a>
+
+        <button
+          class="btn"
+          onclick="window.print()"
+        >
+          Print / Save PDF
+        </button>
+
       </div>
+
     </div>
+
   </header>
 
+
+  <!-- =========================================
+       MAIN PAGE
+  ========================================== -->
+
   <main class="page">
-    <div class="intro">
-      <div class="eyebrow">Family Genealogy</div>
-      <h2>Sk Tanzir Mehedi Family Tree</h2>
-      <p>
-        Paternal and maternal lineage presented using conventional family-tree connectors,
-        without directional arrows.
-      </p>
-    </div>
+
+    <p class="description">
+      Paternal and maternal family lineage with parents,
+      siblings, spouses, and the next generation.
+    </p>
+
 
     <section class="tree-paper">
+
       <div class="tree">
 
-        <div class="section-label">Generation I · Grandparents and Their Children</div>
+
+        <!-- =====================================
+             GENERATION I
+        ====================================== -->
+
+        <div class="section-label">
+          Generation I · Grandparents and Their Children
+        </div>
+
 
         <div class="grandparents-grid">
 
+
+          <!-- ================================
+               PATERNAL LINE
+          ================================= -->
+
           <section class="lineage-card">
-            <div class="lineage-title">Paternal Lineage</div>
+
+            <div class="lineage-title">
+              Paternal Lineage
+            </div>
+
+
+            <!-- PATERNAL GRANDPARENTS -->
 
             <div class="couple">
+
               <div class="person paternal">
-                <div class="name">Late Sk Abul Hossain</div>
-                <div class="relation">Paternal Grandfather</div>
+
+                <div class="name">
+                  Late Sk Abul Hossain
+                </div>
+
+                <div class="relation">
+                  Paternal Grandfather
+                </div>
+
               </div>
+
 
               <div class="couple-line"></div>
 
+
               <div class="person paternal">
-                <div class="name">Late Mst Sohorbanu</div>
-                <div class="relation">Paternal Grandmother</div>
+
+                <div class="name">
+                  Late Mst Sohorbanu
+                </div>
+
+                <div class="relation">
+                  Paternal Grandmother
+                </div>
+
               </div>
+
             </div>
 
+
+            <!-- THEIR CHILDREN -->
+
             <div class="descendants">
+
               <div class="descendant-row five">
-                <div class="person paternal">
-                  <div class="name">Mst Roushon Ara Begum</div>
-                  <div class="relation">Eldest Paternal Aunt</div>
-                </div>
+
 
                 <div class="person paternal">
-                  <div class="name">Mst Rehana Amin</div>
-                  <div class="relation">Second Eldest Paternal Aunt</div>
+
+                  <div class="name">
+                    Mst Roushon Ara Begum
+                  </div>
+
+                  <div class="relation">
+                    Eldest Paternal Aunt
+                  </div>
+
                 </div>
 
-                <div class="person paternal">
-                  <div class="name">Sk Shahidul Islam</div>
-                  <div class="relation">Father</div>
-                </div>
 
                 <div class="person paternal">
-                  <div class="name">Mst Rofia Pervin</div>
-                  <div class="relation">Third Eldest Paternal Aunt</div>
+
+                  <div class="name">
+                    Mst Rehana Amin
+                  </div>
+
+                  <div class="relation">
+                    Second Eldest Paternal Aunt
+                  </div>
+
                 </div>
 
-                <div class="person paternal">
-                  <div class="name">Mst Ruma Pervin</div>
-                  <div class="relation">Youngest Paternal Aunt</div>
+
+                <!-- FATHER -->
+
+                <div class="person paternal parent-highlight">
+
+                  <div class="name">
+                    Sk Shahidul Islam
+                  </div>
+
+                  <div class="relation">
+                    Father
+                  </div>
+
                 </div>
+
+
+                <div class="person paternal">
+
+                  <div class="name">
+                    Mst Rofia Pervin
+                  </div>
+
+                  <div class="relation">
+                    Third Eldest Paternal Aunt
+                  </div>
+
+                </div>
+
+
+                <div class="person paternal">
+
+                  <div class="name">
+                    Mst Ruma Pervin
+                  </div>
+
+                  <div class="relation">
+                    Youngest Paternal Aunt
+                  </div>
+
+                </div>
+
+
               </div>
+
             </div>
+
           </section>
 
+
+          <!-- ================================
+               MATERNAL LINE
+          ================================= -->
+
           <section class="lineage-card">
-            <div class="lineage-title">Maternal Lineage</div>
+
+            <div class="lineage-title">
+              Maternal Lineage
+            </div>
+
+
+            <!-- MATERNAL GRANDPARENTS -->
 
             <div class="couple">
+
               <div class="person maternal">
-                <div class="name">Late Forman Ali Gazi</div>
-                <div class="relation">Maternal Grandfather</div>
+
+                <div class="name">
+                  Late Forman Ali Gazi
+                </div>
+
+                <div class="relation">
+                  Maternal Grandfather
+                </div>
+
               </div>
+
 
               <div class="couple-line"></div>
 
+
               <div class="person maternal">
-                <div class="name">Ayesha Khatun</div>
-                <div class="relation">Maternal Grandmother</div>
+
+                <div class="name">
+                  Ayesha Khatun
+                </div>
+
+                <div class="relation">
+                  Maternal Grandmother
+                </div>
+
               </div>
+
             </div>
+
+
+            <!-- THEIR CHILDREN -->
 
             <div class="descendants">
+
               <div class="descendant-row seven">
-                <div class="person maternal">
-                  <div class="name">Md Surat Ali</div>
-                  <div class="relation">Eldest Maternal Uncle</div>
-                </div>
+
 
                 <div class="person maternal">
-                  <div class="name">Mst Fozila Khatun</div>
-                  <div class="relation">Eldest Maternal Aunt</div>
+
+                  <div class="name">
+                    Md Surat Ali
+                  </div>
+
+                  <div class="relation">
+                    Eldest Maternal Uncle
+                  </div>
+
                 </div>
 
-                <div class="person maternal">
-                  <div class="name">Mst Anawara Khanom</div>
-                  <div class="relation">Second Eldest Maternal Aunt</div>
-                </div>
 
                 <div class="person maternal">
-                  <div class="name">Md Azizur Rahman</div>
-                  <div class="relation">Second Eldest Maternal Uncle</div>
+
+                  <div class="name">
+                    Mst Fozila Khatun
+                  </div>
+
+                  <div class="relation">
+                    Eldest Maternal Aunt
+                  </div>
+
                 </div>
 
-                <div class="person maternal">
-                  <div class="name">Mst Tanzira Begum</div>
-                  <div class="relation">Mother</div>
-                </div>
 
                 <div class="person maternal">
-                  <div class="name">Md. Shahidul Islam</div>
-                  <div class="relation">Third Eldest Maternal Uncle</div>
+
+                  <div class="name">
+                    Mst Anawara Khanom
+                  </div>
+
+                  <div class="relation">
+                    Second Eldest Maternal Aunt
+                  </div>
+
                 </div>
 
+
                 <div class="person maternal">
-                  <div class="name">Md Mozahidul Islam</div>
-                  <div class="relation">Youngest Maternal Uncle</div>
+
+                  <div class="name">
+                    Md Azizur Rahman
+                  </div>
+
+                  <div class="relation">
+                    Second Eldest Maternal Uncle
+                  </div>
+
                 </div>
+
+
+                <!-- MOTHER -->
+
+                <div class="person maternal parent-highlight">
+
+                  <div class="name">
+                    Mst Tanzira Begum
+                  </div>
+
+                  <div class="relation">
+                    Mother
+                  </div>
+
+                </div>
+
+
+                <div class="person maternal">
+
+                  <div class="name">
+                    Md. Shahidul Islam
+                  </div>
+
+                  <div class="relation">
+                    Third Eldest Maternal Uncle
+                  </div>
+
+                </div>
+
+
+                <div class="person maternal">
+
+                  <div class="name">
+                    Md Mozahidul Islam
+                  </div>
+
+                  <div class="relation">
+                    Youngest Maternal Uncle
+                  </div>
+
+                </div>
+
+
               </div>
+
             </div>
+
           </section>
 
+
         </div>
 
-        <div class="merge-zone" aria-hidden="true">
+
+        <!-- =====================================
+             PATERNAL + MATERNAL MERGE
+        ====================================== -->
+
+        <div class="merge-zone">
+
           <div class="left-v"></div>
+
           <div class="right-v"></div>
+
           <div class="h"></div>
+
           <div class="mid-v"></div>
+
         </div>
 
-        <div class="section-label">Generation II · Parents</div>
+
+        <!-- =====================================
+             GENERATION II
+        ====================================== -->
+
+        <div class="section-label">
+          Generation II · Parents
+        </div>
+
 
         <div class="parents-block">
+
           <div class="parents-frame">
+
             <div class="couple">
-              <div class="person paternal">
-                <div class="name">Sk Shahidul Islam</div>
-                <div class="relation">Father</div>
+
+
+              <!-- FATHER -->
+
+              <div class="person paternal parent-highlight">
+
+                <div class="name">
+                  Sk Shahidul Islam
+                </div>
+
+                <div class="relation">
+                  Father
+                </div>
+
               </div>
+
 
               <div class="couple-line"></div>
 
-              <div class="person maternal">
-                <div class="name">Mst Tanzira Begum</div>
-                <div class="relation">Mother</div>
+
+              <!-- MOTHER -->
+
+              <div class="person maternal parent-highlight">
+
+                <div class="name">
+                  Mst Tanzira Begum
+                </div>
+
+                <div class="relation">
+                  Mother
+                </div>
+
               </div>
+
+
             </div>
+
           </div>
+
         </div>
 
-        <div class="section-label">Generation III · Children and Families</div>
+
+        <!-- =====================================
+             GENERATION III
+        ====================================== -->
+
+        <div class="section-label">
+          Generation III · Children and Families
+        </div>
+
 
         <div class="children-main">
+
           <div class="main-grid">
 
+
+            <!-- ================================
+                 SHARMIN FAMILY
+            ================================= -->
+
             <section class="family-unit">
+
               <div class="couple">
+
+
                 <div class="person sibling">
-                  <div class="name">Mst Sharmin Sultana</div>
-                  <div class="relation">Elder Sister</div>
+
+                  <div class="name">
+                    Mst Sharmin Sultana
+                  </div>
+
+                  <div class="relation">
+                    Elder Sister
+                  </div>
+
                 </div>
+
 
                 <div class="couple-line"></div>
 
+
                 <div class="person spouse">
-                  <div class="name">Md Humayun Kabir</div>
-                  <div class="relation">Husband</div>
+
+                  <div class="name">
+                    Md Humayun Kabir
+                  </div>
+
+                  <div class="relation">
+                    Husband
+                  </div>
+
                 </div>
+
+
               </div>
 
+
+              <!-- CHILDREN -->
+
               <div class="next-gen">
+
                 <div class="next-row two">
-                  <div class="person child">
-                    <div class="name">Tasnia Kabir</div>
-                    <div class="relation">Child</div>
-                  </div>
+
 
                   <div class="person child">
-                    <div class="name">Tousif</div>
-                    <div class="relation">Child</div>
+
+                    <div class="name">
+                      Tasnia Kabir
+                    </div>
+
+                    <div class="relation">
+                      Child
+                    </div>
+
                   </div>
+
+
+                  <div class="person child">
+
+                    <div class="name">
+                      Tousif
+                    </div>
+
+                    <div class="relation">
+                      Child
+                    </div>
+
+                  </div>
+
+
                 </div>
+
               </div>
+
             </section>
+
+
+            <!-- ================================
+                 SK TANZIR MEHEDI
+            ================================= -->
 
             <section class="family-unit single">
+
               <div class="person self">
-                <div class="name">Sk Tanzir Mehedi</div>
-                <div class="relation">Myself</div>
+
+                <div class="name">
+                  Sk Tanzir Mehedi
+                </div>
+
+                <div class="relation">
+                  Myself
+                </div>
+
               </div>
+
             </section>
 
+
+            <!-- ================================
+                 SONIA FAMILY
+            ================================= -->
+
             <section class="family-unit">
+
               <div class="couple">
+
+
                 <div class="person sibling">
-                  <div class="name">Mst Sonia Pervin</div>
-                  <div class="relation">Little Sister</div>
+
+                  <div class="name">
+                    Mst Sonia Pervin
+                  </div>
+
+                  <div class="relation">
+                    Little Sister
+                  </div>
+
                 </div>
+
 
                 <div class="couple-line"></div>
 
+
                 <div class="person spouse">
-                  <div class="name">Md Arif Hossain</div>
-                  <div class="relation">Husband</div>
+
+                  <div class="name">
+                    Md Arif Hossain
+                  </div>
+
+                  <div class="relation">
+                    Husband
+                  </div>
+
                 </div>
+
+
               </div>
+
+
+              <!-- CHILD -->
 
               <div class="next-gen">
+
                 <div class="next-row one">
+
+
                   <div class="person child">
-                    <div class="name">Ashfia Jannat</div>
-                    <div class="relation">Child</div>
+
+                    <div class="name">
+                      Ashfia Jannat
+                    </div>
+
+                    <div class="relation">
+                      Child
+                    </div>
+
                   </div>
+
+
                 </div>
+
               </div>
+
             </section>
 
+
+            <!-- ================================
+                 TANVIR
+            ================================= -->
+
             <section class="family-unit single">
+
               <div class="person sibling">
-                <div class="name">Sk Tanvir Mehedi</div>
-                <div class="relation">Youngest Brother</div>
+
+                <div class="name">
+                  Sk Tanvir Mehedi
+                </div>
+
+                <div class="relation">
+                  Youngest Brother
+                </div>
+
               </div>
+
             </section>
+
 
           </div>
+
         </div>
+
+
+        <!-- =====================================
+             LEGEND
+        ====================================== -->
 
         <div class="legend">
-          <span class="legend-item"><span class="swatch" style="background:var(--paternal)"></span>Paternal family</span>
-          <span class="legend-item"><span class="swatch" style="background:var(--maternal)"></span>Maternal family</span>
-          <span class="legend-item"><span class="swatch" style="background:var(--self)"></span>Sk Tanzir Mehedi</span>
-          <span class="legend-item"><span class="swatch" style="background:var(--sibling)"></span>Siblings</span>
-          <span class="legend-item"><span class="swatch" style="background:var(--spouse)"></span>Spouses</span>
-          <span class="legend-item"><span class="swatch" style="background:var(--child)"></span>Children</span>
+
+
+          <span class="legend-item">
+
+            <span
+              class="swatch"
+              style="background: var(--paternal);"
+            ></span>
+
+            Paternal family
+
+          </span>
+
+
+          <span class="legend-item">
+
+            <span
+              class="swatch"
+              style="background: var(--maternal);"
+            ></span>
+
+            Maternal family
+
+          </span>
+
+
+          <span class="legend-item">
+
+            <span
+              class="swatch"
+              style="background: var(--self);"
+            ></span>
+
+            Sk Tanzir Mehedi
+
+          </span>
+
+
+          <span class="legend-item">
+
+            <span
+              class="swatch"
+              style="background: var(--sibling);"
+            ></span>
+
+            Siblings
+
+          </span>
+
+
+          <span class="legend-item">
+
+            <span
+              class="swatch"
+              style="background: var(--spouse);"
+            ></span>
+
+            Spouses
+
+          </span>
+
+
+          <span class="legend-item">
+
+            <span
+              class="swatch"
+              style="background: var(--child);"
+            ></span>
+
+            Children
+
+          </span>
+
+
         </div>
 
+
       </div>
+
     </section>
+
   </main>
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
 
   <footer>
     © 2026 Sk Tanzir Mehedi. All rights reserved.
   </footer>
+
 
 </body>
 </html>
